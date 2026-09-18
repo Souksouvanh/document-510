@@ -168,7 +168,7 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
                   }`}
               >
-                <Inbox size={16} /> เอกสารขาเข้า (รับ)
+                <Inbox size={16} /> ເອກະສານຂາເຂົ້າ
               </button>
               <button
                 type="button"
@@ -178,7 +178,7 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
                   }`}
               >
-                <Send size={16} /> เอกสารขาออก (ส่ง)
+                <Send size={16} /> ເອກະສານຂາອອກ
               </button>
             </div>
           )}
@@ -186,7 +186,7 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
           {/* Row 1: Date & Urgency */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field
-              label="ວັນທີລົງທະບຽນ / ວັນທີໃນເອກະສານ"
+              label="ວັນທີຮັບເອກະສານ"
               required
               error={validated && !form.date ? 'ກະລຸນາລະບຸວັນທີ' : null}
             >

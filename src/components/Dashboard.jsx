@@ -75,7 +75,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
               <Calendar size={13} />
               {/* <span>ປີງົບປະມານ พ.ศ. {beYear}</span> */}
               <span className="w-1 h-1 rounded-full bg-blue-300" />
-              <span>{formatThaiDate(now.toISOString().slice(0, 10))}</span>
+              <span>ວັນທີ {formatThaiDate(now.toISOString().slice(0, 10))}</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white font-thai">
               ລະບົບຮັບ-ສົ່ງເອກະສານ ຂາເຂົ້າ-ຂາອອກ
@@ -268,7 +268,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
                         {doc.subject}
                       </p>
                       <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
-                        {doc.type === 'in' ? 'จาก' : 'ถึง'}: {doc.org}
+                        {doc.type === 'in' ? 'ຈາກ' : 'ເຖິງ'}: {doc.org}
                       </p>
                     </div>
 

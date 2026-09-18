@@ -23,40 +23,54 @@ export const C = {
 };
 
 export const THAI_MONTHS = [
-  'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
-  'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'
+  'ມັງກອນ', 'ກຸມພາ', 'ມີນາ', 'ເມສາ', 'ພຶດສະພາ', 'ມິຖຸນາ',
+  'ກໍລະກົດ', 'ສິງຫາ', 'ກັນຍາ', 'ຕຸລາ', 'ພະຈິກ', 'ທັນວາ'
 ];
 
 export const THAI_MONTHS_SHORT = [
-  'ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.',
-  'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'
+  'ມ.ກ.', 'ກ.ພ.', 'ມ.ຄ.', 'ເມ.ສ.', 'ພ.ຄ.', 'ມິ.ຖ.',
+  'ກ.ກ.', 'ສ.ຫ.', 'ກ.ຍ.', 'ຕ.ລ.', 'ພ.ຈ.', 'ທ.ວ.'
 ];
 
 export const CATEGORY_OPTIONS = [
-  'หนังสือราชการทั่วไป',
-  'จดหมายเชิญ/ขอความอนุเคราะห์',
-  'คำสั่ง/ประกาศ',
-  'รายงานการประชุม',
-  'ใบวางบิล/ใบแจ้งหนี้',
-  'ใบเสนอราคา',
-  'ใบสั่งซื้อ/สัญญา',
-  'คำร้อง/ข้อเสนอ',
-  'อื่นๆ'
+  'ກົດລະບຽບ',
+  'ກົດໝາຍ',
+  'ຂໍ້ຕົກລົງ',
+  'ສະໂນດນຳສົ່ງ',
+  'ສັນຍາ',
+  'ບົດສະຫຼຸບ',
+  'ບົດບັນທຶກ',
+  'ບົດລາຍງານ',
+  'ໜັງສືທາງລັດຖະການ',
+  'ໜັງສືເຊີນ',
+  'ເອກະສານນິຕິກຳ(ຄຳສັ່ງ, ດຳລັດ)',
+  'ແຈ້ງການ',
+  'ແຈ້ງຕອບ',
+  'ແຜນການ',
+  'ໃບຄຳຮ້ອງ',
+  'ໜັງສືສະເໜີ',
+  'ໃບສະເໜີລາຄາ',
+  'ໃບແຈ້ງຫນີ້',
+  'ໃບສັ່ງຊື້',
+  'ໃບຮັບເງິນ',
+  'ໃບຍົກຍ້າຍ',
+  'ໃບຮັບຮອງ',
+  'ໃບເບີກຈ່າຍ',
 ];
 
-export const STATUS_IN = ['รอดำเนินการ', 'ดำเนินการแล้ว', 'ปิดเรื่อง'];
-export const STATUS_OUT = ['ร่าง', 'ส่งแล้ว', 'ปิดเรื่อง'];
+export const STATUS_IN = ['ລໍຖ້າດຳເນີນການ', 'ດຳເນີນການແລ້ວ', 'ປິດເລື່ອງ'];
+export const STATUS_OUT = ['ຮ່າງ', 'ສົ່ງແລ້ວ', 'ປິດເລື່ອງ'];
 
 export const URGENCY_LEVELS = [
-  { id: 'normal', label: 'ปกติ', color: 'slate' },
-  { id: 'urgent', label: 'ด่วน', color: 'gold' },
-  { id: 'very_urgent', label: 'ด่วนมาก', color: 'seal' },
-  { id: 'top_urgent', label: 'ด่วนที่สุด', color: 'seal' }
+  { id: 'normal', label: 'ປົກກະຕິ', color: 'slate' },
+  { id: 'urgent', label: 'ດ່ວນ', color: 'gold' },
+  { id: 'very_urgent', label: 'ດ່ວນຫຼາຍ', color: 'seal' },
+  { id: 'top_urgent', label: 'ດ່ວນທີ່ສຸດ', color: 'seal' }
 ];
 
 export const DEFAULT_SETTINGS = {
-  orgName: 'สำนักงานสารบรรณกลางและพัฒนาระบบราชการ',
-  department: 'กลุ่มงานบริหารสารบรรณและสารสนเทศ',
+  orgName: 'ກົມສື່ສານ ປ້ອງກັນຄວາມສະຫງົບ',
+  department: 'ກຸ່ມວຽກງານບໍລິຫານສານລະກາ ແລະ ສານสนເຫດ',
   prefixIn: 'ร',
   prefixOut: 'ส',
   digits: 3,
@@ -64,7 +78,7 @@ export const DEFAULT_SETTINGS = {
   defaultUrgency: 'normal',
 };
 
-export const toBE = (y) => y + 543;
+export const toBE = (y) => y; // Gregorian year — no longer adding 543 for Buddhist Era
 export const pad = (n, d) => String(n).padStart(d, '0');
 export const todayISO = () => new Date().toISOString().slice(0, 10);
 
@@ -76,7 +90,7 @@ export function formatThaiDate(iso, withTime = false) {
   const dateStr = `${d.getDate()} ${THAI_MONTHS[d.getMonth()]} ${toBE(d.getFullYear())}`;
   if (withTime && parts[1]) {
     const timeStr = parts[1].slice(0, 5);
-    return `${dateStr} เวลา ${timeStr} น.`;
+    return `${dateStr} ເວລາ ${timeStr} ນ.`;
   }
   return dateStr;
 }
@@ -98,14 +112,14 @@ export function daysUntil(iso) {
 
 export function statusColor(status) {
   switch (status) {
-    case 'รอดำเนินการ':
+    case 'ລໍຖ້າດຳເນີນການ':
       return C.gold;
-    case 'ดำเนินการแล้ว':
-    case 'ส่งแล้ว':
+    case 'ດຳເນີນການແລ້ວ':
+    case 'ສົ່ງແລ້ວ':
       return C.primary;
-    case 'ปิดเรื่อง':
+    case 'ປິດເລື່ອງ':
       return C.success;
-    case 'ร่าง':
+    case 'ຮ່າງ':
       return C.slate;
     default:
       return C.slate;
@@ -114,45 +128,45 @@ export function statusColor(status) {
 
 export function statusBadge(status) {
   switch (status) {
-    case 'รอดำเนินการ':
+    case 'ລໍຖ້າດຳເນີນການ':
       return {
         bg: 'bg-amber-500/10 dark:bg-amber-500/20',
         text: 'text-amber-700 dark:text-amber-400',
         border: 'border-amber-500/30',
         dot: 'bg-amber-500',
-        label: 'รอดำเนินการ'
+        label: 'ລໍຖ້າດຳເນີນການ'
       };
-    case 'ดำเนินการแล้ว':
+    case 'ດຳເນີນການແລ້ວ':
       return {
         bg: 'bg-blue-500/10 dark:bg-blue-500/20',
         text: 'text-blue-700 dark:text-blue-400',
         border: 'border-blue-500/30',
         dot: 'bg-blue-500',
-        label: 'ดำเนินการแล้ว'
+        label: 'ດຳເນີນການແລ້ວ'
       };
-    case 'ส่งแล้ว':
+    case 'ສົ່ງແລ້ວ':
       return {
         bg: 'bg-indigo-500/10 dark:bg-indigo-500/20',
         text: 'text-indigo-700 dark:text-indigo-400',
         border: 'border-indigo-500/30',
         dot: 'bg-indigo-500',
-        label: 'ส่งแล้ว'
+        label: 'ສົ່ງແລ້ວ'
       };
-    case 'ปิดเรื่อง':
+    case 'ປິດເລື່ອງ':
       return {
         bg: 'bg-emerald-500/10 dark:bg-emerald-500/20',
         text: 'text-emerald-700 dark:text-emerald-400',
         border: 'border-emerald-500/30',
         dot: 'bg-emerald-500',
-        label: 'ปิดเรื่อง'
+        label: 'ປິດເລື່ອງ'
       };
-    case 'ร่าง':
+    case 'ຮ່າງ':
       return {
         bg: 'bg-slate-500/10 dark:bg-slate-500/20',
         text: 'text-slate-600 dark:text-slate-400',
         border: 'border-slate-500/30',
         dot: 'bg-slate-400',
-        label: 'ร่าง'
+        label: 'ຮ່າງ'
       };
     default:
       return {
@@ -165,13 +179,14 @@ export function statusBadge(status) {
   }
 }
 
+
 export function downloadCSV(rows, filename) {
-  const header = ['เลขที่ลงทะเบียน', 'ประเภท', 'วันที่', 'หน่วยงาน/ผู้รับ-ส่ง', 'เรื่อง', 'หมวดหมู่', 'สถานะ', 'กำหนดตอบกลับ', 'หมายเหตุ'];
+  const header = ['ເລກທີ່ລົງທະບຽນ', 'ປະເພດ', 'ວັນທີ', 'ໜ່ວຍງານ/ຜູ້ຮັບ-ສົ່ງ', 'ເລື່ອງ', 'ໝວດໝູ່', 'ສະຖານະ', 'ກຳນົດຕອບກັບ', 'ໝາຍເຫດ'];
   const lines = [header.join(',')];
   rows.forEach((r) => {
     const cells = [
       r.docNumber,
-      r.type === 'in' ? 'ขาเข้า' : 'ขาออก',
+      r.type === 'in' ? 'ຂາເຂົ້າ' : 'ຂາອອກ',
       formatThaiDate(r.date),
       r.org,
       r.subject,
@@ -285,7 +300,7 @@ export function getSampleSeedDocuments() {
   return [
     {
       id: 'doc_sample_in_01',
-      docNumber: `ร001/${be}`,
+      docNumber: `ລ001/${be}`,
       type: 'in',
       date: offsetDays(-5),
       org: 'สำนักงาน ก.พ.',
@@ -299,7 +314,7 @@ export function getSampleSeedDocuments() {
     },
     {
       id: 'doc_sample_in_02',
-      docNumber: `ร002/${be}`,
+      docNumber: `ລ002/${be}`,
       type: 'in',
       date: offsetDays(-2),
       org: 'สำนักงบประมาณ สำนักนายกรัฐมนตรี',
@@ -308,90 +323,9 @@ export function getSampleSeedDocuments() {
       status: 'รอดำเนินการ',
       urgency: 'very_urgent',
       dueDate: offsetDays(2),
-      notes: 'โปรดเร่งรัดตรวจสอบแผนการใช้จ่ายงบประมาณให้สอดคล้องกับแนวทางสำนักงบประมาณ',
+      notes: 'ກະລຸນາຮີບດ່ວນກວດສອບແຜນການໃຊ້ຈ່າຍງົບປະມານ ໃຫ້ສອດຄ່ອງກັບແນວທາງຂອງສຳນັກງົບປະມານ',
       createdAt: Date.now() - 2 * 86400000,
     },
-    {
-      id: 'doc_sample_in_03',
-      docNumber: `ร003/${be}`,
-      type: 'in',
-      date: offsetDays(-1),
-      org: 'บริษัท ดิจิทัล ซอฟต์แวร์ โซลูชั่นส์ จำกัด',
-      subject: 'ส่งมอบงานงวดที่ 2 โครงการพัฒนาระบบสารบรรณและฐานข้อมูลดิจิทัล',
-      category: 'ใบสั่งซื้อ/สัญญา',
-      status: 'รอดำเนินการ',
-      urgency: 'normal',
-      dueDate: offsetDays(5),
-      notes: 'ส่งต่อคณะกรรมการตรวจรับพัสดุเพื่อดำเนินการตรวจรับตามระเบียบ',
-      createdAt: Date.now() - 86400000,
-    },
-    {
-      id: 'doc_sample_in_04',
-      docNumber: `ร004/${be}`,
-      type: 'in',
-      date: offsetDays(-6),
-      org: 'กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม',
-      subject: 'ขอความอนุเคราะห์สำรวจความพร้อมด้านความมั่นคงปลอดภัยไซเบอร์ ประจำปี 2569',
-      category: 'หนังสือราชการทั่วไป',
-      status: 'รอดำเนินการ',
-      urgency: 'urgent',
-      dueDate: offsetDays(-1), // overdue!
-      notes: 'เร่งด่วน เกินกำหนดตอบกลับ 1 วัน ให้ศูนย์เทคโนโลยีสารสนเทศเร่งสรุปข้อมูล',
-      createdAt: Date.now() - 6 * 86400000,
-    },
-    {
-      id: 'doc_sample_in_05',
-      docNumber: `ร005/${be}`,
-      type: 'in',
-      date: offsetDays(-12),
-      org: 'กรมบัญชีกลาง',
-      subject: 'ซักซ้อมความเข้าใจการปฏิบัติตาม พ.ร.บ. จัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ',
-      category: 'หนังสือราชการทั่วไป',
-      status: 'ปิดเรื่อง',
-      urgency: 'normal',
-      dueDate: offsetDays(-3),
-      notes: 'เวียนแจ้งทุกกลุ่มงานเพื่อทราบและถือปฏิบัติต่อไปเรียบร้อยแล้ว',
-      createdAt: Date.now() - 12 * 86400000,
-    },
-    {
-      id: 'doc_sample_out_01',
-      docNumber: `ส001/${be}`,
-      type: 'out',
-      date: offsetDays(-4),
-      org: 'สำนักงาน ก.พ.',
-      subject: 'หนังสือตอบรับการเข้าร่วมประชุมและแจ้งรายชื่อผู้แทนหน่วยงาน',
-      category: 'หนังสือราชการทั่วไป',
-      status: 'ส่งแล้ว',
-      urgency: 'normal',
-      notes: 'จัดส่งทางระบบ e-Document และไปรษณีย์ตอบรับด่วนพิเศษ (EMS) เรียบร้อย',
-      createdAt: Date.now() - 4 * 86400000,
-    },
-    {
-      id: 'doc_sample_out_02',
-      docNumber: `ส002/${be}`,
-      type: 'out',
-      date: offsetDays(-2),
-      org: 'ประชาชนและหน่วยงานภายนอก',
-      subject: 'ประกาศมาตรการอำนวยความสะดวกและลดขั้นตอนการให้บริการประชาชน ประจำปี 2569',
-      category: 'คำสั่ง/ประกาศ',
-      status: 'ส่งแล้ว',
-      urgency: 'normal',
-      notes: 'เผยแพร่บนเว็บไซต์หลักของหน่วยงานและบอร์ดประชาสัมพันธ์',
-      createdAt: Date.now() - 2 * 86400000,
-    },
-    {
-      id: 'doc_sample_out_03',
-      docNumber: `ส003/${be}`,
-      type: 'out',
-      date: offsetDays(0),
-      org: 'คณะกรรมการตรวจรับพัสดุ',
-      subject: 'คำสั่งแต่งตั้งคณะกรรมการตรวจรับพัสดุงานจ้างพัฒนาระบบคลาวด์',
-      category: 'คำสั่ง/ประกาศ',
-      status: 'ร่าง',
-      urgency: 'urgent',
-      notes: 'อยู่ระหว่างตรวจสอบรายชื่อกรรมการและเสนอผู้บริหารลงนาม',
-      createdAt: Date.now(),
-    }
   ];
 }
 

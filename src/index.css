@@ -52,7 +52,7 @@
   --bg-card-hover: #f8fafc;
   --bg-muted: #f1f5f9;
   --bg-subtle: #f8fafc;
-  
+
   --text-primary: #0f172a;
   --text-secondary: #334155;
   --text-muted: #64748b;
@@ -198,6 +198,7 @@ body {
     opacity: 0;
     transform: scale(0.97) translateY(4px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -209,8 +210,15 @@ body {
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .animate-pulse-glow {
@@ -227,7 +235,11 @@ body {
     font-family: 'Noto Sans Lao', 'Sarabun', serif !important;
   }
 
-  aside, header, nav, button, .no-print {
+  aside,
+  header,
+  nav,
+  button,
+  .no-print {
     display: none !important;
   }
 

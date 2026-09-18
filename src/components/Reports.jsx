@@ -69,7 +69,7 @@ export default function Reports({ documents }) {
   const totalIn = yearDocs.filter((d) => d.type === 'in').length;
   const totalOut = yearDocs.filter((d) => d.type === 'out').length;
   const totalCompleted = yearDocs.filter(
-    (d) => d.status === 'ดำเนินการแล้ว' || d.status === 'ส่งแล้ว' || d.status === 'ปิดเรื่อง'
+    (d) => d.status === 'ດຳເນີນການແລ້ວ' || d.status === 'ສົ່ງແລ້ວ' || d.status === 'ປິດເລື່ອງ'
   ).length;
   const completionRate =
     yearDocs.length > 0 ? Math.round((totalCompleted / yearDocs.length) * 100) : 0;

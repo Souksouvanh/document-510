@@ -45,7 +45,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
                 }`}
             />
             <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">
-              {isIncoming ? 'เอกสารขาเข้า (หนังสือรับ)' : 'เอกสารขาออก (หนังสือส่ง)'}
+              {isIncoming ? 'ເອກະສານຂາເຂົ້າ' : 'ເອກະສານຂາອອກ'}
             </span>
           </div>
 
@@ -54,9 +54,9 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
               variant="secondary"
               size="xs"
               onClick={handlePrint}
-              title="พิมพ์ใบรับรองการลงทะเบียน"
+              title="ພິມໃບບິນການລົງທະບຽນ"
             >
-              <Printer size={13} /> พิมพ์ใบทะเบียน
+              <Printer size={13} /> ພິມໃບບິນ
             </Btn>
             <button
               type="button"
@@ -76,10 +76,10 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
               <SealMark size={48} color={isIncoming ? '#1E3A8A' : '#B91C1C'} />
               <div>
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 font-thai tracking-tight leading-snug">
-                  ใบรับรองการลงทะเบียนหนังสือราชการ
+                  ໃບຮັບຮອງການລົງທະບຽນເອກະສານ
                 </h2>
                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                  ระบบบริหารงานสารบรรณอิเล็กทรอนิกส์
+                  ລະບົບບໍລິຫານວຽກງານເອກະສານ
                 </p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
                 {doc.docNumber}
               </div>
               <p className="text-[11px] text-slate-400 mt-1">
-                ลงวันที่ {formatThaiDate(doc.date)}
+                ລົງວັນທີ {formatThaiDate(doc.date)}
               </p>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
           <div className="space-y-3">
             <div>
               <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                เรื่อง
+                ເລື່ອງ
               </span>
               <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mt-0.5 leading-snug font-thai">
                 {doc.subject}
@@ -109,7 +109,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 text-sm">
               <div>
                 <span className="text-xs text-slate-500 dark:text-slate-400 block">
-                  {isIncoming ? 'จาก (ผู้ส่ง):' : 'ถึง (ผู้รับ):'}
+                  {isIncoming ? 'ຈາກ (ຜູ້ສົ່ງ):' : 'ເຖິງ (ຜູ້ຮັບ):'}
                 </span>
                 <span className="font-semibold text-slate-800 dark:text-slate-200">
                   {doc.org}
@@ -117,7 +117,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
               </div>
               <div>
                 <span className="text-xs text-slate-500 dark:text-slate-400 block">
-                  หมวดหมู่เอกสาร:
+                  ປະເພດເອກະສານ:
                 </span>
                 <span className="font-semibold text-slate-800 dark:text-slate-200">
                   {doc.category || '-'}
@@ -125,7 +125,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
               </div>
               <div>
                 <span className="text-xs text-slate-500 dark:text-slate-400 block">
-                  วันที่ลงทะเบียน:
+                  ວັນທີລົງທະບຽນ:
                 </span>
                 <span className="text-slate-700 dark:text-slate-300">
                   {formatThaiDate(doc.date)}
@@ -134,18 +134,18 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
               {doc.dueDate && (
                 <div>
                   <span className="text-xs text-slate-500 dark:text-slate-400 block">
-                    กำหนดตอบกลับ / ปิดเรื่อง:
+                    ກຳນົດຕອບກັບ / ປິດເລື້ອງ:
                   </span>
                   <span
                     className={`font-semibold ${isOverdue
-                        ? 'text-red-600 dark:text-red-400'
-                        : 'text-slate-700 dark:text-slate-300'
+                      ? 'text-red-600 dark:text-red-400'
+                      : 'text-slate-700 dark:text-slate-300'
                       }`}
                   >
                     {formatThaiDate(doc.dueDate)}
                     {dleft !== null && (
                       <span className="text-xs font-normal ml-1.5 opacity-80">
-                        ({dleft < 0 ? `เกิน ${-dleft} วัน` : `เหลือ ${dleft} วัน`})
+                        ({dleft < 0 ? `ເກີນ ${-dleft} ມື້` : `ເຫຼືອ ${dleft} ມື້`})
                       </span>
                     )}
                   </span>
@@ -165,7 +165,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
               {onStatusChange && (
                 <div className="no-print">
                   <span className="text-xs text-slate-500 dark:text-slate-400 block mb-1">
-                    เปลี่ยนสถานะอย่างรวดเร็ว:
+                    ປ່ຽນສະຖານະຢ່າງວ່ອງໄວ:
                   </span>
                   <div className="flex items-center gap-1.5 flex-wrap">
                     {statuses.map((st) => (
@@ -174,8 +174,8 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
                         type="button"
                         onClick={() => onStatusChange(doc, st)}
                         className={`px-2.5 py-1 text-xs rounded-lg font-medium transition-all cursor-pointer ${doc.status === st
-                            ? 'bg-blue-600 text-white shadow-xs'
-                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                          ? 'bg-blue-600 text-white shadow-xs'
+                          : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                           }`}
                       >
                         {st}
@@ -191,7 +191,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
           {doc.notes && (
             <div>
               <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                หมายเหตุ / ข้อสั่งการ
+                ຫມາຍເຫດ
               </span>
               <div className="mt-1 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 text-sm text-slate-700 dark:text-slate-300 whitespace-pre-wrap">
                 {doc.notes}
@@ -203,7 +203,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
           {doc.fileData && (
             <div>
               <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                เอกสารแนบ
+                ເອກະສານແນບ
               </span>
               <div className="mt-2">
                 {doc.fileType && doc.fileType.startsWith('image/') ? (
@@ -224,7 +224,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
                     className="inline-flex items-center gap-2 p-3 rounded-xl border border-blue-200 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 hover:bg-blue-100 transition-colors text-sm font-medium"
                   >
                     <FileText size={18} />
-                    <span>ดาวน์โหลดไฟล์แนบ: {doc.fileName || 'เอกสารแนบ'}</span>
+                    <span>ດາວໂຫຼດເອກະສານແນບ: {doc.fileName || 'ເອກະສານແນບ'}</span>
                     <Download size={14} className="ml-1 opacity-75" />
                   </a>
                 )}
@@ -235,14 +235,14 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
           {/* Officer Certification Box (visible in print slip) */}
           <div className="pt-6 border-t border-dashed border-slate-300 dark:border-slate-700 grid grid-cols-2 gap-6 text-center text-xs text-slate-500">
             <div>
-              <p className="mb-8">ลงชื่อ....................................................... ผู้รับ/ผู้ลงทะเบียน</p>
+              <p className="mb-8">ລົງຊື່....................................................... ຜູ້ຮັບ/ຜູ້ລົງທະບຽນ</p>
               <p>(..........................................................)</p>
-              <p className="text-[11px] mt-1">ตำแหน่ง เจ้าหน้าที่งานสารบรรณ</p>
+              <p className="text-[11px] mt-1">ຕຳແໜ່ງ ........................................................</p>
             </div>
             <div>
-              <p className="mb-8">ลงชื่อ....................................................... ผู้รับมอบหมาย/ผู้ตรวจสอบ</p>
+              <p className="mb-8">ລົງຊື່....................................................... ຜູ້ຮັບມອບໝາຍ/ຜູ້ກວດສອບ</p>
               <p>(..........................................................)</p>
-              <p className="text-[11px] mt-1">วันที่ ......./......./...........</p>
+              <p className="text-[11px] mt-1">ວັນທີ ......./......./...........</p>
             </div>
           </div>
         </div>
@@ -252,21 +252,21 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
           {confirmDelete ? (
             <div className="flex items-center gap-2">
               <span className="text-xs text-red-600 dark:text-red-400 font-medium">
-                ยืนยันการลบเอกสารนี้?
+                ຢືນຢັນການລົບເອກະສານນີ້?
               </span>
               <Btn
                 variant="danger"
                 size="xs"
                 onClick={() => onDelete(doc.id)}
               >
-                ยืนยันลบ
+                ຢືນຢັນລົບ
               </Btn>
               <Btn
                 variant="ghost"
                 size="xs"
                 onClick={() => setConfirmDelete(false)}
               >
-                ยกเลิก
+                ຍົກເລີກ
               </Btn>
             </div>
           ) : (
@@ -275,20 +275,20 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
               size="sm"
               onClick={() => setConfirmDelete(true)}
             >
-              <Trash2 size={14} /> ลบเอกสาร
+              <Trash2 size={14} /> ລົບເອກະສານ
             </Btn>
           )}
 
           <div className="flex items-center gap-2">
             <Btn variant="secondary" size="sm" onClick={onClose}>
-              ปิด
+              ປິດ
             </Btn>
             <Btn
               variant="primary"
               size="sm"
               onClick={() => onEdit(doc)}
             >
-              <Pencil size={14} /> แก้ไขข้อมูล
+              <Pencil size={14} /> ແກ້ໄຂຂໍ້ມູນ
             </Btn>
           </div>
         </div>

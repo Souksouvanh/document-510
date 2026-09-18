@@ -10,9 +10,8 @@ export function Badge({ children, status, variant, color, dot = false, size = 's
     const meta = statusBadge(status);
     return (
       <span
-        className={`inline-flex items-center gap-1.5 font-medium rounded-full border transition-colors ${
-          size === 'xs' ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-0.5 text-xs'
-        } ${meta.bg} ${meta.text} ${meta.border} ${className}`}
+        className={`inline-flex items-center gap-1.5 font-medium rounded-full border transition-colors ${size === 'xs' ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-0.5 text-xs'
+          } ${meta.bg} ${meta.text} ${meta.border} ${className}`}
       >
         {dot && <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${meta.dot}`} />}
         {children || meta.label}
@@ -32,9 +31,8 @@ export function Badge({ children, status, variant, color, dot = false, size = 's
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 font-medium rounded-full border transition-colors ${
-        size === 'xs' ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-0.5 text-xs'
-      } ${styleClass} ${className}`}
+      className={`inline-flex items-center gap-1.5 font-medium rounded-full border transition-colors ${size === 'xs' ? 'px-2 py-0.5 text-[11px]' : 'px-2.5 py-0.5 text-xs'
+        } ${styleClass} ${className}`}
       style={color ? { color, borderColor: `${color}40`, backgroundColor: `${color}15` } : {}}
     >
       {dot && <span className="w-1.5 h-1.5 rounded-full shrink-0 bg-current opacity-80" />}
@@ -107,11 +105,10 @@ export function Card({ children, className = '', hover = false, onClick }) {
   return (
     <div
       onClick={onClick}
-      className={`rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs transition-all ${
-        hover
+      className={`rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs transition-all ${hover
           ? 'hover:shadow-md hover:border-slate-300 dark:hover:border-slate-700 cursor-pointer'
           : ''
-      } ${className}`}
+        } ${className}`}
     >
       {children}
     </div>
@@ -169,11 +166,10 @@ export function StatCard({
       onClick={onClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
-      className={`group relative p-4 sm:p-5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs transition-all duration-200 text-left ${
-        onClick
+      className={`group relative p-4 sm:p-5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs transition-all duration-200 text-left ${onClick
           ? `cursor-pointer hover:-translate-y-0.5 hover:shadow-md ${scheme.borderColor}`
           : ''
-      } ${active ? scheme.activeBorder : ''}`}
+        } ${active ? scheme.activeBorder : ''}`}
     >
       <div className="flex items-start justify-between">
         <div>
@@ -309,10 +305,10 @@ export function SealMark({ size = 36, color = '#B91C1C', className = '' }) {
       {/* Outer Decorative Ring */}
       <circle cx="50" cy="50" r="46" stroke={color} strokeWidth="3" />
       <circle cx="50" cy="50" r="41" stroke={color} strokeWidth="1" strokeDasharray="3 2" />
-      
+
       {/* Inner Ring */}
       <circle cx="50" cy="50" r="32" stroke={color} strokeWidth="2" />
-      
+
       {/* Decorative Star Accents */}
       <circle cx="16" cy="50" r="2.5" fill={color} />
       <circle cx="84" cy="50" r="2.5" fill={color} />

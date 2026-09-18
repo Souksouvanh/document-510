@@ -152,14 +152,14 @@ export default function App() {
       });
       showToast(
         isNew
-          ? `บันทึกลงทะเบียนเลขที่ ${toSave.docNumber} สำเร็จ`
-          : `บันทึกการแก้ไข ${toSave.docNumber} เรียบร้อย`,
+          ? `ບັນທຶກລົງທະບຽນເລກທີ ${toSave.docNumber} ສຳເລັດ`
+          : `ບັນທຶກການແກ້ໄຂ ${toSave.docNumber} ສຳເລັດ`,
         'success'
       );
       setFormModal(null);
       setViewDoc((v) => (v && v.id === toSave.id ? toSave : v));
     } else {
-      showToast('ไม่สามารถบันทึกข้อมูลได้ กรุณาลองใหม่อีกครั้ง', 'error');
+      showToast('ບໍ່ສາມາດບັນທຶກຂໍ້ມູນໄດ້ ກະລຸນາລອງໃໝ່ອີກຄັ້ງ', 'error');
     }
   }
 
@@ -170,7 +170,7 @@ export default function App() {
     if (ok) {
       setDocuments((prev) => prev.map((d) => (d.id === doc.id ? updated : d)));
       setViewDoc(updated);
-      showToast(`เปลี่ยนสถานะเป็น "${newStatus}" เรียบร้อย`, 'success');
+      showToast(`ປ່ຽນສະຖານະເປັນ "${newStatus}" ສຳເລັດ`, 'success');
     }
   }
 
@@ -180,7 +180,7 @@ export default function App() {
     if (ok) {
       setDocuments((prev) => prev.filter((d) => d.id !== id));
       setViewDoc(null);
-      showToast('ลบเอกสารออกจากระบบเรียบร้อย', 'success');
+      showToast('ລົບເອກະສານອອກຈາກລະບົບ ສຳເລັດ', 'success');
     }
   }
 
@@ -188,7 +188,7 @@ export default function App() {
   async function handleSaveSettings(newSettings) {
     setSettings(newSettings);
     await sSet('meta:settings', JSON.stringify(newSettings));
-    showToast('บันทึกการตั้งค่าระบบเรียบร้อย', 'success');
+    showToast('ບັນທຶກການຕັ້ງຄ່າລະບົບ ສຳເລັດ', 'success');
   }
 
   // Seed sample demo data
@@ -197,7 +197,7 @@ export default function App() {
     const samples = await seedSampleData();
     setDocuments(samples);
     setLoading(false);
-    showToast('โหลดข้อมูลตัวอย่างเรียบร้อย', 'success');
+    showToast('ໂຫຼດຂໍ້ມູນຕົວຢ່າງສຳເລັດ', 'success');
   }
 
   // Export JSON backup
@@ -219,13 +219,13 @@ export default function App() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    showToast('ดาวน์โหลดไฟล์สำรองเรียบร้อย', 'success');
+    showToast('ດາວໂຫຼດໄຟລ໌ສຳຮອງສຳເລັດ', 'success');
   }
 
   // Import JSON backup
   async function handleImportBackup(data) {
     if (!data || !Array.isArray(data.documents)) {
-      showToast('รูปแบบไฟล์สำรองไม่ถูกต้อง', 'error');
+      showToast('ຮູບແບບໄຟລ໌ສຳຮອງບໍ່ຖືກຕ້ອງ', 'error');
       return;
     }
     setLoading(true);
@@ -238,7 +238,7 @@ export default function App() {
     }
     setDocuments(data.documents);
     setLoading(false);
-    showToast(`กู้คืนข้อมูลสำเร็จ ${data.documents.length} รายการ`, 'success');
+    showToast(`ກູ້ຄືນຂໍ້ມູນສຳເລັດ ${data.documents.length} ລາຍການ`, 'success');
   }
 
   // Wipe database
@@ -246,7 +246,7 @@ export default function App() {
     const keys = await sList('doc:');
     await Promise.all(keys.map((k) => sDelete(k)));
     setDocuments([]);
-    showToast('ล้างข้อมูลเอกสารทั้งหมดเรียบร้อย', 'success');
+    showToast('ລົບເອກະສານທັງໝົດອອກຈາກລະບົບສຳເລັດ', 'success');
   }
 
   // Overdue count for alert
@@ -301,7 +301,7 @@ export default function App() {
             <SealMark size={38} color={isDarkMode ? '#3B82F6' : '#1E3A8A'} />
             <div className="overflow-hidden">
               <h1 className="text-sm font-bold text-slate-900 dark:text-slate-100 font-thai leading-snug truncate">
-                ระบบสารบรรณ
+                ລະບົບຈັດການເອກະສານ
               </h1>
               <p className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-[150px]">
                 {settings.orgName}
@@ -370,7 +370,7 @@ export default function App() {
               <span>{isDarkMode ? 'ໂໝດມືດ (Dark)' : 'ໂໝດສະຫວ່າງ (Light)'}</span>
             </span>
             <span className="text-[11px] px-1.5 py-0.5 bg-slate-200 dark:bg-slate-700 rounded text-slate-600 dark:text-slate-300">
-              ສະລັບ
+              ສະຫຼັບ
             </span>
           </button>
 
@@ -392,7 +392,7 @@ export default function App() {
           <SealMark size={32} color={isDarkMode ? '#3B82F6' : '#1E3A8A'} />
           <div>
             <span className="text-sm font-bold text-slate-900 dark:text-slate-100 font-thai leading-tight block">
-              ระบบสารบรรณ
+              ລະບົບຈັດການເອກະສານ
             </span>
             <span className="text-[11px] text-slate-400 truncate max-w-[140px] block">
               {settings.orgName}
@@ -472,7 +472,7 @@ export default function App() {
               {viewTitles[view]}
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              {settings.department || settings.orgName} • ปี พ.ศ. {toBE(new Date().getFullYear())}
+              {settings.department || settings.orgName} • ປີ {toBE(new Date().getFullYear())}
             </p>
           </div>
 
@@ -483,7 +483,7 @@ export default function App() {
                 type="button"
                 onClick={() => setNotifOpen((o) => !o)}
                 className="relative p-2 rounded-xl text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                title="การแจ้งเตือนงานติดตาม"
+                title="ການແຈ້ງເຕືອນວຽກຕິດຕາມ"
               >
                 <Bell size={18} />
                 {overdueDocs.length > 0 && (

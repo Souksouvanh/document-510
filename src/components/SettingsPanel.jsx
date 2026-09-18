@@ -45,7 +45,7 @@ export default function SettingsPanel({
           onImportBackup(parsed);
         }
       } catch {
-        alert('ไฟล์สำรองไม่ถูกต้อง ไม่สามารถนำเข้าได้');
+        alert('ບໍ່ສາມາດອ່ານໄຟຣ໌ສຳຮອງໄດ້ ກະລຸນາກວດສອບໄຟຣ໌ໃຫ້ຖືກຕ້ອງ');
       }
     };
     reader.readAsText(file);
@@ -56,10 +56,10 @@ export default function SettingsPanel({
       {/* Page Title */}
       <div className="pb-2 border-b border-slate-200/80 dark:border-slate-800">
         <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 font-thai">
-          การตั้งค่าระบบสารบรรณ
+          ການຕັ້ງຄ່າລະບົບ
         </h2>
         <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-          กำหนดชื่อหน่วยงาน รูปแบบเลขที่ลงทะเบียน และการสำรองข้อมูล
+          ກຳນົດຊື່ຂອງໜ່ວຍງານ, ພະແນກ ແລະ ຮູບແບບເລກທີ່ໃນເອກະສານ
         </p>
       </div>
 
@@ -67,27 +67,27 @@ export default function SettingsPanel({
       <div className="p-5 sm:p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs space-y-4">
         <h3 className="font-bold text-base text-slate-900 dark:text-slate-100 font-thai flex items-center gap-2">
           <Building size={18} className="text-blue-600 dark:text-blue-400" />
-          ข้อมูลหน่วยงานและรูปแบบเลขทะเบียน
+          ຂໍ້ມູນຂອງໜ່ວຍງານ ແລະ ຮູບແບບເລກທີ່ເອກະສານ
         </h3>
 
         <div className="space-y-4">
-          <Field label="ชื่อหน่วยงาน / องค์กร">
+          <Field label="ກົມກອງ / ປກສ ແຂວງ">
             <input
               type="text"
               className={inputClass}
               value={form.orgName}
               onChange={(e) => setForm({ ...form, orgName: e.target.value })}
-              placeholder="เช่น สำนักงานสารบรรณกลาง"
+              placeholder="ກົມສື່ສານ ປ້ອງກັນຄວາມສະຫງົບ"
             />
           </Field>
 
-          <Field label="กลุ่มงาน / ฝ่าย / ส่วนราชการ">
+          <Field label="ພະແນກ">
             <input
               type="text"
               className={inputClass}
               value={form.department || ''}
               onChange={(e) => setForm({ ...form, department: e.target.value })}
-              placeholder="เช่น กลุ่มงานบริหารสารบรรณและสารสนเทศ"
+              placeholder="ພະແນກຄຸ້ມຄອງລະບົບຄອມພິວເຕີ"
             />
           </Field>
 

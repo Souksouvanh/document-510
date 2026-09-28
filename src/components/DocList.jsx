@@ -120,10 +120,10 @@ export default function DocList({ type, documents, onView, onAdd }) {
           <div>
             <div className="flex items-center gap-2">
               <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 font-thai">
-                {isIncoming ? 'ເອກະສານເຂົ້າ (ໜັງສືຮັບ)' : 'ເອກະສານອອກ (ໜັງສືສົ່ງ)'}
+                {isIncoming ? 'ເອກະສານຂາເຂົ້າ' : 'ເອກະສານຂາອອກ'}
               </h2>
               <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono-num">
-                {filtered.length} ฉบับ
+                {filtered.length} ສະບັບ
               </span>
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">

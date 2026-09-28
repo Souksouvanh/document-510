@@ -87,20 +87,20 @@ export default function Reports({ documents }) {
         <div>
           <div className="flex items-center gap-2">
             <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 font-thai">
-              รายงานสถิติสารบรรณและปริมาณเอกสาร
+              ລາຍງານສະຖິຕິເອກະສານຂາເຂົ້າ-ຂາອອກ
             </h2>
             <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300">
-              พ.ศ. {beYear}
+              ປີ {beYear}
             </span>
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-            สรุปภาพรวมปริมาณงานรับ-ส่งหนังสือ อัตราการดำเนินงาน และจำแนกตามหมวดหมู่
+            ລາຍງານສະຖິຕິເອກະສານຂາເຂົ້າ-ຂາອອກ, ອັດຕາການເຮັດວຽກ ແລະ ຈຳແນກປະເພດເອກະສານຕາມໝວດໝູ່
           </p>
         </div>
 
         <div className="flex items-center gap-2 self-start sm:self-auto">
           <Btn variant="secondary" size="sm" onClick={handlePrint}>
-            <Printer size={14} /> พิมพ์รายงาน
+            <Printer size={14} /> ພິມລາຍງານ
           </Btn>
           <Btn
             variant="primary"
@@ -108,11 +108,11 @@ export default function Reports({ documents }) {
             onClick={() =>
               downloadCSV(
                 yearDocs,
-                `รายงานสถิติสารบรรณ_ปี_${beYear}_${new Date().toISOString().slice(0, 10)}.csv`
+                `ລາຍງານສະຖິຕິເອກະສານຂາເຂົ້າ-ຂາອອກ_${beYear}_${new Date().toISOString().slice(0, 10)}.csv`
               )
             }
           >
-            <Download size={14} /> ส่งออก CSV ทั้งหมด
+            <Download size={14} /> ສົ່ງອອກ CSV ທັງໝົດ
           </Btn>
         </div>
       </div>
@@ -122,46 +122,46 @@ export default function Reports({ documents }) {
           ================================================================== */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs">
-          <span className="text-xs text-slate-500 dark:text-slate-400">เอกสารทั้งหมดในปี</span>
+          <span className="text-xs text-slate-500 dark:text-slate-400">ເອກະສານທັງໝົດໃນປີ</span>
           <div className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1 font-mono-num">
             {yearDocs.length}
           </div>
-          <span className="text-[11px] text-slate-400 mt-0.5 block">รวมเข้าและออก</span>
+          <span className="text-[11px] text-slate-400 mt-0.5 block">ລວມທັງໝົດເອກະສານຂາເຂົ້າ-ຂາອອກ</span>
         </div>
 
         <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs">
           <span className="text-xs text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1">
-            <Inbox size={13} /> หนังสือรับ (ขาเข้า)
+            <Inbox size={13} /> ເອກະສານຂາເຂົ້າ
           </span>
           <div className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1 font-mono-num">
             {totalIn}
           </div>
           <span className="text-[11px] text-slate-400 mt-0.5 block">
-            {yearDocs.length > 0 ? Math.round((totalIn / yearDocs.length) * 100) : 0}% ของทั้งหมด
+            {yearDocs.length > 0 ? Math.round((totalIn / yearDocs.length) * 100) : 0}% ຂອງທັງໝົດ
           </span>
         </div>
 
         <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs">
           <span className="text-xs text-red-600 dark:text-red-400 font-medium flex items-center gap-1">
-            <Send size={13} /> หนังสือส่ง (ขาออก)
+            <Send size={13} /> ເອກະສານຂາອອກ
           </span>
           <div className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1 font-mono-num">
             {totalOut}
           </div>
           <span className="text-[11px] text-slate-400 mt-0.5 block">
-            {yearDocs.length > 0 ? Math.round((totalOut / yearDocs.length) * 100) : 0}% ของทั้งหมด
+            {yearDocs.length > 0 ? Math.round((totalOut / yearDocs.length) * 100) : 0}% ຂອງທັງໝົດ
           </span>
         </div>
 
         <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs">
           <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1">
-            <CheckCircle2 size={13} /> อัตราการดำเนินงาน
+            <CheckCircle2 size={13} /> ອັດຕາການເຮັດວຽກ
           </span>
           <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mt-1 font-mono-num">
             {completionRate}%
           </div>
           <span className="text-[11px] text-slate-400 mt-0.5 block">
-            ดำเนินการ/ปิดเรื่องแล้ว {totalCompleted} ฉบับ
+            ດຳເນີນການແລ້ວ/ປິດເລື່ອງແລ້ວ {totalCompleted} ສະບັບ
           </span>
         </div>
       </div>
@@ -173,10 +173,10 @@ export default function Reports({ documents }) {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
           <div>
             <h3 className="font-bold text-base text-slate-900 dark:text-slate-100 font-thai">
-              ปริมาณเอกสารรายเดือน ประจำปี พ.ศ. {beYear}
+              ສະຖະຕິເອກະສານແຕ່ລະເດືອນ ປະຈຳປີ {beYear}
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              เปรียบเทียบสถิติหนังสือรับ (ขาเข้า) และหนังสือส่ง (ขาออก) แต่ละเดือน
+              ສະຖະຕິເອກະສານຂາເຂົ້າ-ຂາອອກແຕ່ລະເດືອນ
             </p>
           </div>
 
@@ -184,11 +184,11 @@ export default function Reports({ documents }) {
           <div className="flex items-center gap-4 text-xs">
             <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
               <span className="w-3 h-3 rounded bg-blue-600 inline-block" />
-              หนังสือรับ (ขาเข้า)
+              ເອກະສານຂາເຂົ້າ
             </span>
             <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
               <span className="w-3 h-3 rounded bg-red-700 inline-block" />
-              หนังสือส่ง (ขาออก)
+              ເອກະສານຂາອອກ
             </span>
           </div>
         </div>
@@ -207,7 +207,7 @@ export default function Reports({ documents }) {
                 {/* Floating tooltip on hover */}
                 <div className="absolute -top-12 bg-slate-900 text-white text-[11px] py-1 px-2 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-20">
                   <p className="font-semibold">{m.month}</p>
-                  <p>ขาเข้า: {m.in} | ขาออก: {m.out}</p>
+                  <p>ເອກະສານຂາເຂົ້າ: {m.in} | ເອກະສານຂາອອກ: {m.out}</p>
                 </div>
 
                 {/* Bars */}
@@ -215,12 +215,12 @@ export default function Reports({ documents }) {
                   <div
                     style={{ height: `${Math.max(inHeight > 0 ? 6 : 0, inHeight)}%` }}
                     className="w-2.5 sm:w-4 rounded-t bg-blue-600 dark:bg-blue-500 transition-all duration-300 group-hover:brightness-110"
-                    title={`ขาเข้า ${m.in}`}
+                    title={`ເອກະສານຂາເຂົ້າ ${m.in}`}
                   />
                   <div
                     style={{ height: `${Math.max(outHeight > 0 ? 6 : 0, outHeight)}%` }}
                     className="w-2.5 sm:w-4 rounded-t bg-red-700 dark:bg-red-600 transition-all duration-300 group-hover:brightness-110"
-                    title={`ขาออก ${m.out}`}
+                    title={`ເອກະສານຂາອອກ ${m.out}`}
                   />
                 </div>
 
@@ -238,14 +238,14 @@ export default function Reports({ documents }) {
           ================================================================== */}
       <div className="p-5 sm:p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs">
         <h3 className="font-bold text-base text-slate-900 dark:text-slate-100 font-thai mb-1">
-          จำแนกตามหมวดหมู่เอกสาร
+          ແບ່ງຕາມປະເພດເອກະສານ
         </h3>
         <p className="text-xs text-slate-500 dark:text-slate-400 mb-5">
-          สัดส่วนประเภทของหนังสือราชการและเอกสารในรอบปี
+          ອັດຕາສ່ວນປະເພດຂອງເອກະສານໃນປີນີ້
         </p>
 
         {byCategory.length === 0 ? (
-          <p className="text-sm py-8 text-center text-slate-400">ยังไม่มีข้อมูลในปีนี้</p>
+          <p className="text-sm py-8 text-center text-slate-400">ຍັງບໍ່ມີຂໍ້ມູນໃນປີນີ້</p>
         ) : (
           <div className="space-y-3.5">
             {byCategory.map(([cat, val]) => {
@@ -259,10 +259,10 @@ export default function Reports({ documents }) {
                     </span>
                     <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400">
                       <span>
-                        รับ <strong className="text-blue-600 dark:text-blue-400">{val.in}</strong>
+                        ຮັບ <strong className="text-blue-600 dark:text-blue-400">{val.in}</strong>
                       </span>
                       <span>
-                        ส่ง <strong className="text-red-600 dark:text-red-400">{val.out}</strong>
+                        ສົ່ງ <strong className="text-red-600 dark:text-red-400">{val.out}</strong>
                       </span>
                       <span className="font-mono-num font-semibold text-slate-700 dark:text-slate-300 w-10 text-right">
                         {pct}%
@@ -277,14 +277,14 @@ export default function Reports({ documents }) {
                         width: `${yearDocs.length > 0 ? (val.in / yearDocs.length) * 100 : 0}%`,
                       }}
                       className="bg-blue-600"
-                      title={`ขาเข้า: ${val.in}`}
+                      title={`ເອກະສານຂາເຂົ້າ: ${val.in}`}
                     />
                     <div
                       style={{
                         width: `${yearDocs.length > 0 ? (val.out / yearDocs.length) * 100 : 0}%`,
                       }}
                       className="bg-red-700"
-                      title={`ขาออก: ${val.out}`}
+                      title={`ເອກະສານຂາອອກ: ${val.out}`}
                     />
                   </div>
                 </div>

@@ -92,28 +92,28 @@ export default function SettingsPanel({
           </Field>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Field label="อักษรนำหน้าเลขที่ขาเข้า (หนังสือรับ)">
+            <Field label="ກຳນົດຊື່ຫຍໍ້ຮັບເອກະສານຂາເຂົ້າ">
               <input
                 type="text"
                 className={inputClass}
                 value={form.prefixIn}
                 onChange={(e) => setForm({ ...form, prefixIn: e.target.value })}
-                placeholder="เช่น ร"
+                placeholder="/ສສ"
               />
             </Field>
 
-            <Field label="อักษรนำหน้าเลขที่ขาออก (หนังสือส่ง)">
+            <Field label="ກຳນົດຊື່ຫຍໍ້ສົ່ງເອກະສານຂາອອກ">
               <input
                 type="text"
                 className={inputClass}
                 value={form.prefixOut}
                 onChange={(e) => setForm({ ...form, prefixOut: e.target.value })}
-                placeholder="เช่น ส"
+                placeholder="/ສສ"
               />
             </Field>
           </div>
 
-          <Field label="จำนวนหลักตัวเลข (เช่น 3 หลัก = 001, 4 หลัก = 0001)">
+          <Field label="ຈຳນວນຫຼັກຕົວເລກ (ເຊັ່ນ 3 ຫຼັກ = 001, 4 ຫຼັກ = 0001)">
             <input
               type="number"
               min={1}
@@ -129,21 +129,19 @@ export default function SettingsPanel({
           {/* Live Preview Box */}
           <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/80">
             <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 block mb-2">
-              ตัวอย่างเลขที่ลงทะเบียนที่จะถูกสร้างขึ้นอัตโนมัติ:
+              ຕົວຢ່າງເລກທີເອກະສານທີ່ຈະສ້າງອັດຕະໂນມັດ
             </span>
             <div className="flex flex-wrap items-center gap-4 text-sm font-mono-num font-semibold">
               <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-500 font-thai">ขาเข้า:</span>
+                <span className="text-xs text-slate-500 font-thai">ເອກະສານຂາເຂົ້າ:</span>
                 <span className="px-3 py-1 rounded-lg bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-200 dark:border-blue-900">
-                  {form.prefixIn}
-                  {String(1).padStart(form.digits, '0')}/{beYear}
+                  {String(1).padStart(form.digits, '0')}/{form.prefixIn}
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs text-slate-500 font-thai">ขาออก:</span>
+                <span className="text-xs text-slate-500 font-thai">ເອກະສານຂາອອກ:</span>
                 <span className="px-3 py-1 rounded-lg bg-red-100 text-red-800 dark:bg-red-950/60 dark:text-red-300 border border-red-200 dark:border-red-900">
-                  {form.prefixOut}
-                  {String(1).padStart(form.digits, '0')}/{beYear}
+                  {String(1).padStart(form.digits, '0')}/{form.prefixOut}
                 </span>
               </div>
             </div>
@@ -151,11 +149,11 @@ export default function SettingsPanel({
 
           <div className="flex items-center gap-3 pt-2">
             <Btn variant="primary" onClick={handleSave}>
-              <Check size={14} /> บันทึกการตั้งค่า
+              <Check size={14} /> ບັນທືກການຕັ້ງຄ່າ
             </Btn>
             {saved && (
               <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                ✓ บันทึกการตั้งค่าเรียบร้อย
+                ✓ ບັນທືກການຕັ້ງຄ່າສຳເລັດ
               </span>
             )}
           </div>
@@ -166,39 +164,39 @@ export default function SettingsPanel({
       <div className="p-5 sm:p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs space-y-4">
         <h3 className="font-bold text-base text-slate-900 dark:text-slate-100 font-thai flex items-center gap-2">
           <Database size={18} className="text-blue-600 dark:text-blue-400" />
-          การสำรองข้อมูลและการทดสอบระบบ
+          ການສຳຮອງຂໍ້ມູນ ແລະ ການທົດສອບລະບົບ
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
           <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40">
             <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-1">
-              สำรองข้อมูล (Backup JSON)
+              ສຳຮອງຂໍ້ມູນ (Backup JSON)
             </h4>
             <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
-              ดาวน์โหลดข้อมูลเอกสารและการตั้งค่าทั้งหมดเก็บไว้ในคอมพิวเตอร์
+              ດາວໂຫຼດຂໍ້ມູນເອກະສານ ແລະ ການຕັ້ງຄ່າທັງໝົດເກັບໄວ້ໃນຄອມພິວເຕີ
             </p>
             <Btn
               variant="secondary"
               size="sm"
               onClick={onExportBackup}
             >
-              <Download size={14} /> ดาวน์โหลดไฟล์สำรอง
+              <Download size={14} /> ດາວໂຫຼດໄຟຣ໌ສຳຮອງ
             </Btn>
           </div>
 
           <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40">
             <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 mb-1">
-              กู้คืนข้อมูล (Restore JSON)
+              ກູ້ຄືນຂໍ້ມູນ (Restore JSON)
             </h4>
             <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
-              นำเข้าไฟล์สำรองเพื่อกู้คืนประวัติและข้อมูลเอกสารทั้งหมด
+              ນຳເຂົ້າໄຟຣ໌ສຳຮອງເພື່ອກູ້ຄືນປະຫວັດ ແລະ ຂໍ້ມູນເອກະສານທັງໝົດ
             </p>
             <Btn
               variant="secondary"
               size="sm"
               onClick={() => fileInputRef.current && fileInputRef.current.click()}
             >
-              <Upload size={14} /> นำเข้าไฟล์สำรอง
+              <Upload size={14} /> ນຳເຂົ້າໄຟຣ໌ສຳຮອງ
             </Btn>
             <input
               type="file"
@@ -215,10 +213,10 @@ export default function SettingsPanel({
           <div>
             <h4 className="text-sm font-semibold text-blue-900 dark:text-blue-200 flex items-center gap-1.5">
               <Sparkles size={16} className="text-blue-600" />
-              โหลดข้อมูลตัวอย่าง (Sample Demo Data)
+              ໂຫຼດຂໍ້ມູນຕົວຢ່າງ (Sample Demo Data)
             </h4>
             <p className="text-xs text-blue-700/80 dark:text-blue-300/80 mt-0.5">
-              สร้างชุดเอกสารตัวอย่างราชการที่สมบูรณ์ เพื่อทดสอบการทำงานของแดชบอร์ดและรายงาน
+              ສ້າງຊຸດເອກະສານຕົວຢ່າງເພື່ອທົດສອບການເຮັດວຽກຂອງ Dashboard ແລະ ລາຍງານ
             </p>
           </div>
           <Btn
@@ -226,7 +224,7 @@ export default function SettingsPanel({
             size="sm"
             onClick={onSeedSample}
           >
-            <RefreshCw size={14} /> โหลดข้อมูลตัวอย่าง
+            <RefreshCw size={14} /> ໂຫຼດຂໍ້ມູນຕົວຢ່າງ
           </Btn>
         </div>
       </div>
@@ -235,16 +233,16 @@ export default function SettingsPanel({
       <div className="p-5 sm:p-6 rounded-2xl border border-red-200/80 dark:border-red-900/50 bg-red-50/30 dark:bg-red-950/10 shadow-2xs space-y-3">
         <h3 className="font-bold text-base text-red-700 dark:text-red-400 font-thai flex items-center gap-2">
           <AlertTriangle size={18} />
-          พื้นที่อันตราย (Danger Zone)
+          ເຂດອັນຕະລາຍ (Danger Zone)
         </h3>
         <p className="text-xs text-slate-600 dark:text-slate-400">
-          การล้างข้อมูลจะลบเอกสารและสถิติทะเบียนทั้งหมดออกจากเบราว์เซอร์ การกระทำนี้ไม่สามารถย้อนกลับได้
+          ການລຶບຂໍ້ມູນຈະລຶບເອກະສານ ແລະ ສະຖິຕິທັງໝົດອອກຈາກບັນຊີ ຫຼັງເຮັດແລ້ວບໍ່ສາມາດຍົກເລີກໄດ້
         </p>
 
         {confirmWipe ? (
           <div className="flex items-center gap-2.5 pt-2">
             <span className="text-xs font-semibold text-red-700 dark:text-red-300">
-              ยืนยันการล้างข้อมูลทั้งหมด?
+              ຢືນຢັນການລຶບຂໍ້ມູນທັງໝົດ?
             </span>
             <Btn
               variant="danger"
@@ -254,14 +252,14 @@ export default function SettingsPanel({
                 setConfirmWipe(false);
               }}
             >
-              ยืนยันล้างข้อมูลทั้งหมด
+              ຢືນຢັນລຶບຂໍ້ມູນທັງໝົດ
             </Btn>
             <Btn
               variant="ghost"
               size="sm"
               onClick={() => setConfirmWipe(false)}
             >
-              ยกเลิก
+              ຍົກເລີກ
             </Btn>
           </div>
         ) : (
@@ -270,7 +268,7 @@ export default function SettingsPanel({
             size="sm"
             onClick={() => setConfirmWipe(true)}
           >
-            <Trash2 size={14} /> ล้างข้อมูลเอกสารทั้งหมดในระบบ
+            <Trash2 size={14} /> ລຶບຂໍ້ມູນເອກະສານທັງໝົດໃນລະບົບ
           </Btn>
         )}
       </div>

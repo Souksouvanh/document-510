@@ -78,10 +78,10 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
               <span>ວັນທີ {formatThaiDate(now.toISOString().slice(0, 10))}</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white font-thai">
-              ລະບົບຮັບ-ສົ່ງເອກະສານ ຂາເຂົ້າ-ຂາອອກ
+              ລະບົບຈັດການເອກະສານ ຂາເຂົ້າ-ຂາອອກ
             </h2>
             <p className="text-sm text-blue-200/80 mt-1 max-w-xl">
-              ຈັດການເອກະສານເຂົ້າອອກ ພ້ອມທັງຕິດຕາມກຳນົດເວລາ ແລະພິມໃບຮັບຮອງ ໄດ້ຢ່າງສະດວກ ແລະວ່ອງໄວ
+              ຈັດການເອກະສານເຂົ້າອອກ ພ້ອມທັງຕິດຕາມກຳນົດເວລາ ໄດ້ຢ່າງສະດວກ ແລະວ່ອງໄວ
             </p>
           </div>
 
@@ -171,7 +171,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 py-4 border-b border-slate-100 dark:border-slate-800 gap-3">
             <div className="flex items-center gap-2">
               <FileText size={18} className="text-blue-600 dark:text-blue-400" />
-              <h3 className="font-semibold text-base text-slate-900 dark:text-slate-100 font-thai">
+              <h3 className="font-semibold text-base text-slate-900 dark:text-slate-100 font-thain">
                 ລາຍການເອກະສານລ່າສຸດ
               </h3>
             </div>
@@ -206,7 +206,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
                   }`}
               >
-                ເຂົ້າອອກ
+                ຂາອອກ
               </button>
             </div>
           </div>

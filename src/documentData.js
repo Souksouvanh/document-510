@@ -70,15 +70,15 @@ export const URGENCY_LEVELS = [
 
 export const DEFAULT_SETTINGS = {
   orgName: 'ກົມສື່ສານ ປ້ອງກັນຄວາມສະຫງົບ',
-  department: 'ກຸ່ມວຽກງານບໍລິຫານສານລະກາ ແລະ ສານสนເຫດ',
-  prefixIn: 'ร',
-  prefixOut: 'ส',
+  department: 'ພະແນກຄຸ້ມຄອງລະບົບຄອມພິວເຕີ',
+  prefixIn: 'ສສ',
+  prefixOut: 'ຄບພ',
   digits: 3,
-  yearFormat: 'be', // 'be' for พ.ศ.
+  yearFormat: 'be',
   defaultUrgency: 'normal',
 };
 
-export const toBE = (y) => y; // Gregorian year — no longer adding 543 for Buddhist Era
+export const toBE = (y) => y
 export const pad = (n, d) => String(n).padStart(d, '0');
 export const todayISO = () => new Date().toISOString().slice(0, 10);
 
@@ -99,7 +99,7 @@ export function formatThaiDateShort(iso) {
   if (!iso) return '-';
   const d = new Date(iso + 'T00:00:00');
   if (isNaN(d.getTime())) return '-';
-  return `${d.getDate()} ${THAI_MONTHS_SHORT[d.getMonth()]} ${String(toBE(d.getFullYear())).slice(-2)}`;
+  return `${d.getDate()} ${THAI_MONTHS[d.getMonth()]} ${String(toBE(d.getFullYear()))}`;
 }
 
 export function daysUntil(iso) {
@@ -300,32 +300,113 @@ export function getSampleSeedDocuments() {
   return [
     {
       id: 'doc_sample_in_01',
-      docNumber: `ລ001/${be}`,
+      docNumber: `001/ສສ`,
       type: 'in',
       date: offsetDays(-5),
-      org: 'สำนักงาน ก.พ.',
-      subject: 'ขอเชิญร่วมการประชุมสัมมนาวิชาการการพัฒนาระบบบริหารจัดการภาครัฐ 4.0',
-      category: 'จดหมายเชิญ/ขอความอนุเคราะห์',
-      status: 'ดำเนินการแล้ว',
+      org: 'ສຳນັກງານ ກ.ພ.',
+      subject: 'ຂໍເຊີນເຂົ້າຮ່ວມກອງປະຊຸມສຳມະນາວິຊາການ ການພັດທະນາລະບົບບໍລິຫານຈັດການພາກລັດ 4.0',
+      category: 'ໜັງສືເຊີນ',
+      status: 'ດຳເນີນການແລ້ວ',
       urgency: 'urgent',
       dueDate: offsetDays(10),
-      notes: 'มอบหมายกลุ่มงานยุทธศาสตร์จัดส่งผู้แทนเข้าร่วมประชุมจำนวน 2 ท่าน',
+      notes: 'ມອບໝາຍໃຫ້ກຸ່ມງານຍຸດທະສາດຈັດສົ່ງຜູ້ແທນເຂົ້າຮ່ວມປະຊຸມຈຳນວນ 2 ທ່ານ',
       createdAt: Date.now() - 5 * 86400000,
     },
     {
       id: 'doc_sample_in_02',
-      docNumber: `ລ002/${be}`,
+      docNumber: `002/ສສ`,
       type: 'in',
       date: offsetDays(-2),
-      org: 'สำนักงบประมาณ สำนักนายกรัฐมนตรี',
-      subject: 'แจ้งการจัดสรรงบประมาณรายจ่ายประจำปีงบประมาณ พ.ศ. 2569 งวดที่ 2',
-      category: 'คำสั่ง/ประกาศ',
-      status: 'รอดำเนินการ',
+      org: 'ສຳນັກງົບປະມານ ສຳນັກນາຍົກລັດຖະມົນຕີ',
+      subject: 'ແຈ້ງການຈັດສັນງົບປະມານລາຍຈ່າຍປະຈຳປີງົບປະມານ ພ.ສ. 2569 ງວດທີ 2',
+      category: 'ແຈ້ງການ',
+      status: 'ລໍຖ້າດຳເນີນການ',
       urgency: 'very_urgent',
       dueDate: offsetDays(2),
       notes: 'ກະລຸນາຮີບດ່ວນກວດສອບແຜນການໃຊ້ຈ່າຍງົບປະມານ ໃຫ້ສອດຄ່ອງກັບແນວທາງຂອງສຳນັກງົບປະມານ',
       createdAt: Date.now() - 2 * 86400000,
     },
+    {
+      id: 'doc_sample_in_03',
+      docNumber: `003/ສສ`,
+      type: 'in',
+      date: offsetDays(-1),
+      org: 'ບໍລິສັດ ດີຈີຕອລ ຊອບແວ ໂຊລູຊັນ ຈຳກັດ',
+      subject: 'ສົ່ງມອບງານງວດທີ 2 ໂຄງການພັດທະນາລະບົບສານບັນ ແລະ ຖານຂໍ້ມູນດີຈີຕອລ',
+      category: 'ໃບສັ່ງຊື້',
+      status: 'ລໍຖ້າດຳເນີນການ',
+      urgency: 'normal',
+      dueDate: offsetDays(5),
+      notes: 'ສົ່ງຕໍ່ຄະນະກຳມະການກວດຮັບພັດສະດຸເພື່ອດຳເນີນການກວດຮັບຕາມລະບຽບ',
+      createdAt: Date.now() - 86400000,
+    },
+    {
+      id: 'doc_sample_in_04',
+      docNumber: `004/ສສ`,
+      type: 'in',
+      date: offsetDays(-6),
+      org: 'ກະຊວງດີຈີຕອລເພື່ອເສດຖະກິດ ແລະ ສັງຄົມ',
+      subject: 'ຂໍຄວາມອນຸເຄາະສຳຫຼວດຄວາມພ້ອມດ້ານຄວາມໝັ້ນຄົງປອດໄພໄຊເບີ ປະຈຳປີ 2569',
+      category: 'ໜັງສືທາງລັດຖະການ',
+      status: 'ລໍຖ້າດຳເນີນການ',
+      urgency: 'urgent',
+      dueDate: offsetDays(-1), // overdue!
+      notes: 'ດ່ວນ! ເກີນກຳນົດຕອບກັບ 1 ວັນ ໃຫ້ສູນເຕັກໂນໂລຊີຂໍ້ມູນຂ່າວສານ ຮີບສະຫຼຸບຂໍ້ມູນ',
+      createdAt: Date.now() - 6 * 86400000,
+    },
+    {
+      id: 'doc_sample_in_05',
+      docNumber: `005/ສສ`,
+      type: 'in',
+      date: offsetDays(-12),
+      org: 'ກົມບັນຊີກາງ',
+      subject: 'ຊ້ອມຄວາມເຂົ້າໃຈການປະຕິບັດຕາມ ກ.ຈ.ຈ. ການຈັດຊື້ ຈັດຈ້າງ ແລະ ການບໍລິຫານພັດສະດຸພາກລັດ',
+      category: 'ໜັງສືທາງລັດຖະການ',
+      status: 'ປິດເລື່ອງ',
+      urgency: 'normal',
+      dueDate: offsetDays(-3),
+      notes: 'ວຽນແຈ້ງທຸກກຸ່ມງານເພື່ອຮັບຊາບ ແລະ ຖືປະຕິບັດຕໍ່ໄປຮຽບຮ້ອຍແລ້ວ',
+      createdAt: Date.now() - 12 * 86400000,
+    },
+    {
+      id: 'doc_sample_out_01',
+      docNumber: `006/ສສ`,
+      type: 'out',
+      date: offsetDays(-4),
+      org: 'ສຳນັກງານ ກ.ພ.',
+      subject: 'ໜັງສືຕອບຮັບການເຂົ້າຮ່ວມກອງປະຊຸມ ແລະ ແຈ້ງລາຍຊື່ຜູ້ຕາງໜ້າໜ່ວຍງານ',
+      category: 'ໜັງສືທາງລັດຖະການ',
+      status: 'ສົ່ງແລ້ວ',
+      urgency: 'normal',
+      notes: 'ຈັດສົ່ງຜ່ານລະບົບ e-Document ແລະ ໄປສະນີຕອບຮັບດ່ວນພິເສດ (EMS) ຮຽບຮ້ອຍແລ້ວ',
+      createdAt: Date.now() - 4 * 86400000,
+    },
+    {
+      id: 'doc_sample_out_02',
+      docNumber: `007/ສສ`,
+      type: 'out',
+      date: offsetDays(-2),
+      org: 'ປະຊາຊົນ ແລະ ໜ່ວຍງານພາຍນອກ',
+      subject: 'ປະກາດມາດຕະການອຳນວຍຄວາມສະດວກ ແລະ ຫຼຸດຂັ້ນຕອນການໃຫ້ບໍລິການປະຊາຊົນ ປະຈຳປີ 2569',
+      category: 'ແຈ້ງການ',
+      status: 'ສົ່ງແລ້ວ',
+      urgency: 'normal',
+      notes: 'ເຜີຍແຜ່ທາງເວັບໄຊທ໌ຫຼັກຂອງໜ່ວຍງານ ແລະ ກະດານປະຊາສຳພັນ',
+      createdAt: Date.now() - 2 * 86400000,
+    },
+    {
+      id: 'doc_sample_out_03',
+      docNumber: `008/ສສ`,
+      type: 'out',
+      date: offsetDays(0),
+      org: 'ຄະນະກຳມະການກວດຮັບພັດສະດຸ',
+      subject: 'ຄຳສັ່ງແຕ່ງຕັ້ງຄະນະກຳມະການກວດຮັບພັດສະດຸ ງານຈ້າງພັດທະນາລະບົບຄລາວ',
+      category: 'ເອກະສານນິຕິກຳ(ຄຳສັ່ງ, ດຳລັດ)',
+      status: 'ຮ່າງ',
+      urgency: 'urgent',
+      notes: 'ຢູ່ລະຫວ່າງກວດສອບລາຍຊື່ກຳມະການ ແລະ ສະເໜີຜູ້ບໍລິຫານລົງລາຍຊື່',
+      createdAt: Date.now(),
+    }
   ];
 }
 

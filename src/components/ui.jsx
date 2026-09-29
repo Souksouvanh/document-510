@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { X, AlertCircle } from 'lucide-react';
 import { statusBadge } from '../documentData.js';
 
@@ -20,7 +20,7 @@ export function Badge({ children, status, variant, color, dot = false, size = 's
   }
 
   const colorStyles = {
-    primary: 'bg-blue-500/10 text-blue-700 border-blue-500/30 dark:bg-blue-500/20 dark:text-blue-300',
+    primary: 'bg-green-600/10 text-green-800 border-green-600/30 dark:bg-green-600/20 dark:text-green-300',
     seal: 'bg-red-500/10 text-red-700 border-red-500/30 dark:bg-red-500/20 dark:text-red-300',
     gold: 'bg-amber-500/10 text-amber-700 border-amber-500/30 dark:bg-amber-500/20 dark:text-amber-300',
     success: 'bg-emerald-500/10 text-emerald-700 border-emerald-500/30 dark:bg-emerald-500/20 dark:text-emerald-300',
@@ -67,7 +67,7 @@ export function Btn({
 
   const variantClasses = {
     primary:
-      'bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white shadow-sm hover:shadow focus-visible:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500',
+      'bg-green-700 hover:bg-green-800 active:bg-green-900 text-white shadow-sm hover:shadow focus-visible:ring-green-600 dark:bg-green-700 dark:hover:bg-green-600',
     seal:
       'bg-red-700 hover:bg-red-800 active:bg-red-900 text-white shadow-sm hover:shadow focus-visible:ring-red-600 dark:bg-red-600 dark:hover:bg-red-500',
     ink:
@@ -130,11 +130,11 @@ export function StatCard({
 }) {
   const colorMap = {
     blue: {
-      bg: 'bg-blue-50 dark:bg-blue-950/40',
-      iconColor: 'text-blue-600 dark:text-blue-400',
-      borderColor: 'hover:border-blue-300 dark:hover:border-blue-800',
-      glow: 'group-hover:ring-blue-500/20',
-      activeBorder: 'border-blue-500 ring-2 ring-blue-500/20',
+      bg: 'bg-green-50 dark:bg-green-950/40',
+      iconColor: 'text-green-700 dark:text-green-500',
+      borderColor: 'hover:border-green-300 dark:hover:border-green-900',
+      glow: 'group-hover:ring-green-600/20',
+      activeBorder: 'border-green-600 ring-2 ring-green-600/20',
     },
     red: {
       bg: 'bg-red-50 dark:bg-red-950/40',
@@ -229,7 +229,7 @@ export function Field({ label, children, required, error, hint, className = '' }
 }
 
 export const inputClass =
-  'w-full px-3.5 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-150';
+  'w-full px-3.5 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-600/20 transition-all duration-150';
 
 // ==========================================================================
 // MODAL WRAPPER

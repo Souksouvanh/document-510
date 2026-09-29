@@ -8,13 +8,13 @@
 
 :root {
   /* --- Primitive Tokens: Colors --- */
-  --blue-50: #eff6ff;
-  --blue-100: #dbeafe;
-  --blue-500: #3b82f6;
-  --blue-600: #2563eb;
-  --blue-700: #1d4ed8;
-  --blue-900: #1e3a8a;
-  --blue-950: #172554;
+  --green-50: #e8f5e2;
+  --green-100: #dbeafe;
+  --green-600: #7BC55E;
+  --green-700: #2E7D14;
+  --green-800: #3a9a1a;
+  --green-950: #2E7D14;
+  --green-950: #172554;
 
   --crimson-50: #fef2f2;
   --crimson-100: #fee2e2;
@@ -47,24 +47,24 @@
   --slate-950: #020617;
 
   /* --- Semantic Tokens: Light Mode --- */
-  --bg-page: #f8fafc;
+  --bg-page: #f4faf0;
   --bg-card: #ffffff;
-  --bg-card-hover: #f8fafc;
-  --bg-muted: #f1f5f9;
-  --bg-subtle: #f8fafc;
+  --bg-card-hover: #e8f5e2;
+  --bg-muted: #e8f5e2;
+  --bg-subtle: #f4faf0;
 
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
-  --text-subtle: #94a3b8;
+  --text-primary: #1a2e14;
+  --text-secondary: #2E7D14;
+  --text-muted: #5a7a50;
+  --text-subtle: #7BC55E;
 
-  --border-subtle: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --border-focus: #2563eb;
+  --border-subtle: #c8e6b8;
+  --border-strong: #7BC55E;
+  --border-focus: #2E7D14;
 
-  --primary: #1e3a8a;
-  --primary-hover: #1d4ed8;
-  --primary-light: #eff6ff;
+  --primary: #2E7D14;
+  --primary-hover: #3a9a1a;
+  --primary-light: #e8f5e2;
   --primary-fg: #ffffff;
 
   --seal: #b91c1c;
@@ -72,10 +72,10 @@
   --seal-light: #fef2f2;
 
   --gold: #d97706;
-  --gold-light: #fef3c7;
+  --gold-light: #FFF5CC;
 
-  --emerald: #059669;
-  --emerald-light: #ecfdf5;
+  --emerald: #7BC55E;
+  --emerald-light: #e8f5e2;
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
@@ -107,11 +107,11 @@
 
   --border-subtle: #1e293b;
   --border-strong: #334155;
-  --border-focus: #3b82f6;
+  --border-focus: #7BC55E;
 
-  --primary: #3b82f6;
-  --primary-hover: #60a5fa;
-  --primary-light: rgba(59, 130, 246, 0.15);
+  --primary: #7BC55E;
+  --primary-hover: #86c564;
+  --primary-light: rgba(123, 197, 94, 0.15);
   --primary-fg: #ffffff;
 
   --seal: #ef4444;

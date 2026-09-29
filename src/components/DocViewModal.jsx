@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import {
   FileText,
   X,
@@ -41,7 +41,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
         <div className="flex items-center justify-between px-6 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/50 no-print">
           <div className="flex items-center gap-2">
             <span
-              className={`w-2.5 h-2.5 rounded-full ${isIncoming ? 'bg-blue-600' : 'bg-red-600'
+              className={`w-2.5 h-2.5 rounded-full ${isIncoming ? 'bg-green-700' : 'bg-red-600'
                 }`}
             />
             <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">
@@ -73,7 +73,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
           {/* Slip Official Header */}
           <div className="flex items-start justify-between border-b-2 border-slate-900 dark:border-slate-100 pb-4">
             <div className="flex items-center gap-3">
-              <SealMark size={48} color={isIncoming ? '#1E3A8A' : '#B91C1C'} />
+              <SealMark size={48} color={isIncoming ? '#2E7D14' : '#B91C1C'} />
               <div>
                 <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 font-thai tracking-tight leading-snug">
                   ໃບຮັບຮອງການລົງທະບຽນເອກະສານ
@@ -85,7 +85,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
             </div>
 
             <div className="text-right">
-              <div className="font-mono-num font-bold text-lg text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 px-3 py-1 rounded-lg border border-blue-200 dark:border-blue-800 inline-block">
+              <div className="font-mono-num font-bold text-lg text-green-800 dark:text-green-500 bg-green-50 dark:bg-green-950/40 px-3 py-1 rounded-lg border border-green-200 dark:border-green-900 inline-block">
                 {doc.docNumber}
               </div>
               <p className="text-[11px] text-slate-400 mt-1">
@@ -158,7 +158,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
           <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
-                <span className="text-xs text-slate-400 block mb-1">สถานะปัจจุบัน</span>
+                <span className="text-xs text-slate-400 block mb-1">ສະຖານະປັດຈຸບັນ</span>
                 <Badge status={doc.status} size="sm" dot />
               </div>
 
@@ -174,7 +174,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
                         type="button"
                         onClick={() => onStatusChange(doc, st)}
                         className={`px-2.5 py-1 text-xs rounded-lg font-medium transition-all cursor-pointer ${doc.status === st
-                          ? 'bg-blue-600 text-white shadow-xs'
+                          ? 'bg-green-700 text-white shadow-xs'
                           : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                           }`}
                       >
@@ -221,7 +221,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
                   <a
                     href={doc.fileData}
                     download={doc.fileName || 'attachment'}
-                    className="inline-flex items-center gap-2 p-3 rounded-xl border border-blue-200 dark:border-blue-900/60 bg-blue-50/50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 hover:bg-blue-100 transition-colors text-sm font-medium"
+                    className="inline-flex items-center gap-2 p-3 rounded-xl border border-green-200 dark:border-green-950/60 bg-green-50/50 dark:bg-green-950/30 text-green-800 dark:text-green-300 hover:bg-green-100 transition-colors text-sm font-medium"
                   >
                     <FileText size={18} />
                     <span>ດາວໂຫຼດເອກະສານແນບ: {doc.fileName || 'ເອກະສານແນບ'}</span>
@@ -233,7 +233,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
           )}
 
           {/* Officer Certification Box (visible in print slip) */}
-          <div className="pt-6 border-t border-dashed border-slate-300 dark:border-slate-700 grid grid-cols-2 gap-6 text-center text-xs text-slate-500">
+          {/* <div className="pt-6 border-t border-dashed border-slate-300 dark:border-slate-700 grid grid-cols-2 gap-6 text-center text-xs text-slate-500">
             <div>
               <p className="mb-8">ລົງຊື່....................................................... ຜູ້ຮັບ/ຜູ້ລົງທະບຽນ</p>
               <p>(..........................................................)</p>
@@ -244,7 +244,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
               <p>(..........................................................)</p>
               <p className="text-[11px] mt-1">ວັນທີ ......./......./...........</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Modal Footer Controls (hidden in print) */}

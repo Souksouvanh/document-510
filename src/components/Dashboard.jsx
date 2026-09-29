@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import {
   Inbox,
   Send,
@@ -64,23 +64,23 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
       {/* ==================================================================
           TOP BANNER & QUICK ACTIONS
           ================================================================== */}
-      <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-blue-900 via-indigo-950 to-slate-900 p-6 sm:p-7 text-white shadow-lg">
+      <div className="relative overflow-hidden rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-green-950 via-green-950 to-slate-900 p-6 sm:p-7 text-white shadow-lg">
         {/* Background glow effects */}
-        <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-green-600/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute right-1/3 -top-12 w-48 h-48 bg-red-500/10 rounded-full blur-2xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-blue-200 text-xs font-medium mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-green-200 text-xs font-medium mb-3">
               <Calendar size={13} />
               {/* <span>ປີງົບປະມານ พ.ศ. {beYear}</span> */}
-              <span className="w-1 h-1 rounded-full bg-blue-300" />
+              <span className="w-1 h-1 rounded-full bg-green-300" />
               <span>ວັນທີ {formatThaiDate(now.toISOString().slice(0, 10))}</span>
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white font-thai">
               ລະບົບຈັດການເອກະສານ ຂາເຂົ້າ-ຂາອອກ
             </h2>
-            <p className="text-sm text-blue-200/80 mt-1 max-w-xl">
+            <p className="text-sm text-green-200/80 mt-1 max-w-xl">
               ຈັດການເອກະສານເຂົ້າອອກ ພ້ອມທັງຕິດຕາມກຳນົດເວລາ ໄດ້ຢ່າງສະດວກ ແລະວ່ອງໄວ
             </p>
           </div>
@@ -89,7 +89,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
             <button
               type="button"
               onClick={() => onAdd({ defaultType: 'in' })}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-white font-medium text-sm shadow-sm transition-all duration-150 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-green-600 hover:bg-green-500 text-white font-medium text-sm shadow-sm transition-all duration-150 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               <FilePlus size={16} /> ບັນທຶກເອກະສານຂາເຂົ້າ
             </button>
@@ -170,7 +170,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
         <div className="lg:col-span-2 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs overflow-hidden">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 py-4 border-b border-slate-100 dark:border-slate-800 gap-3">
             <div className="flex items-center gap-2">
-              <FileText size={18} className="text-blue-600 dark:text-blue-400" />
+              <FileText size={18} className="text-green-700 dark:text-green-500" />
               <h3 className="font-semibold text-base text-slate-900 dark:text-slate-100 font-thain">
                 ລາຍການເອກະສານລ່າສຸດ
               </h3>
@@ -242,8 +242,8 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
                     {/* Icon indicator */}
                     <div
                       className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${doc.type === 'in'
-                        ? 'bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400'
-                        : 'bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400'
+                        ? 'bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-500'
+                        : 'bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-400'
                         }`}
                     >
                       {doc.type === 'in' ? <Inbox size={15} /> : <Send size={15} />}
@@ -252,7 +252,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
                     {/* Document Number & Subject */}
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono-num text-xs font-semibold text-blue-700 dark:text-blue-400">
+                        <span className="font-mono-num text-xs font-semibold text-green-800 dark:text-green-500">
                           {doc.docNumber}
                         </span>
                         <span className="text-[11px] text-slate-400 dark:text-slate-500 hidden sm:inline">
@@ -264,7 +264,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
                           </span>
                         )}
                       </div>
-                      <p className="text-sm font-medium text-slate-800 dark:text-slate-200 truncate mt-0.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <p className="text-sm font-medium text-slate-800 dark:text-slate-200 truncate mt-0.5 group-hover:text-green-700 dark:group-hover:text-green-500 transition-colors">
                         {doc.subject}
                       </p>
                       <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
@@ -294,7 +294,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
             <button
               type="button"
               onClick={() => onGo(filterType === 'out' ? 'out' : 'in')}
-              className="inline-flex items-center gap-1 font-medium text-blue-600 hover:text-blue-700 dark:text-blue-400 cursor-pointer"
+              className="inline-flex items-center gap-1 font-medium text-green-700 hover:text-green-800 dark:text-green-500 cursor-pointer"
             >
               ເບິ່ງທັງໝົດ <ArrowUpRight size={13} />
             </button>
@@ -355,7 +355,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
                             ? 'bg-red-100 text-red-800 dark:bg-red-900/60 dark:text-red-200'
                             : isToday
                               ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-200'
-                              : 'bg-blue-100 text-blue-800 dark:bg-blue-900/60 dark:text-blue-200'
+                              : 'bg-green-100 text-green-900 dark:bg-green-950/60 dark:text-green-200'
                             }`}
                         >
                           {isPast

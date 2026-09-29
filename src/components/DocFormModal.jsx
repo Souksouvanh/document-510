@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import {
   Inbox,
   Send,
@@ -125,7 +125,7 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40">
           <div className="flex items-center gap-2.5">
             <div
-              className={`w-9 h-9 rounded-xl flex items-center justify-center text-white ${form.type === 'in' ? 'bg-blue-600' : 'bg-red-700'
+              className={`w-9 h-9 rounded-xl flex items-center justify-center text-white ${form.type === 'in' ? 'bg-green-700' : 'bg-red-700'
                 }`}
             >
               {form.type === 'in' ? <Inbox size={18} /> : <Send size={18} />}
@@ -164,7 +164,7 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
                 type="button"
                 onClick={() => handleTypeChange('in')}
                 className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-sm font-semibold transition-all cursor-pointer ${form.type === 'in'
-                  ? 'bg-blue-600 text-white shadow-sm'
+                  ? 'bg-green-700 text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
                   }`}
               >
@@ -233,8 +233,8 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
               onChange={(e) => setField('org', e.target.value)}
               placeholder={
                 form.type === 'in'
-                  ? 'ເຊັ່ນ: ກະຊວງການເງິນ, ບໍລິສັດ ເອັນຊີຈຳກັດ'
-                  : 'ເຊັ່ນ: ກະຊວງແຮງງານ, ທຸກກຸ່ມວຽກໃນສັງກັດ'
+                  ? 'ເຊັ່ນ: ຫ້ອງວ່າການກະຊວງ ປກສ, ...'
+                  : 'ເຊັ່ນ: ກະຊວງເຕັກໂນໂລຊີ ແລະ ການສື່ສານ, ...'
               }
               className={inputClass}
             />
@@ -251,7 +251,7 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
               required
               value={form.subject}
               onChange={(e) => setField('subject', e.target.value)}
-              placeholder="ເຊັ່ນ: ເຊີນເຂົ້າຮ່ວມກອງປະຊຸມ, ລາຍງານຜົນການດຳເນີນງານງວດທີ 1"
+              placeholder="ເຊັ່ນ: ເຊີນເຂົ້າຮ່ວມກອງປະຊຸມ, ..."
               className={inputClass}
             />
           </Field>
@@ -315,7 +315,7 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
             {form.fileName ? (
               <div className="flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
                 <div className="flex items-center gap-2.5 overflow-hidden">
-                  <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-300 flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-green-100 text-green-800 dark:bg-green-950/60 dark:text-green-300 flex items-center justify-center shrink-0">
                     <FileText size={16} />
                   </div>
                   <div className="truncate">
@@ -336,8 +336,8 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
               </div>
             ) : (
               <div>
-                <label className="flex flex-col items-center justify-center p-5 border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 rounded-xl cursor-pointer bg-slate-50/50 dark:bg-slate-800/30 transition-colors group">
-                  <Upload size={22} className="text-slate-400 group-hover:text-blue-500 mb-1" />
+                <label className="flex flex-col items-center justify-center p-5 border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-green-500 dark:hover:border-green-600 rounded-xl cursor-pointer bg-slate-50/50 dark:bg-slate-800/30 transition-colors group">
+                  <Upload size={22} className="text-slate-400 group-hover:text-green-600 mb-1" />
                   <span className="text-xs font-medium text-slate-600 dark:text-slate-300">
                     ຄລິກເພື່ອເລືອກໄຟລ໌ ຫຼື ລາກໄຟລ໌ມາໃສ່ນີ້
                   </span>

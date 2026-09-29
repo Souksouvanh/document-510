@@ -1,11 +1,11 @@
-// ==========================================================================
+﻿// ==========================================================================
 // THAI DOCUMENT REGISTRY & TRACKING SYSTEM DATA LAYER
 // ==========================================================================
 
 export const C = {
-  primary: '#1E3A8A',
-  primaryHover: '#1D4ED8',
-  primaryLight: '#EFF6FF',
+  primary: '#2E7D14',
+  primaryHover: '#3a9a1a',
+  primaryLight: '#e8f5e2',
   seal: '#B91C1C',
   sealHover: '#991B1B',
   sealLight: '#FEF2F2',
@@ -138,18 +138,18 @@ export function statusBadge(status) {
       };
     case 'ດຳເນີນການແລ້ວ':
       return {
-        bg: 'bg-blue-500/10 dark:bg-blue-500/20',
-        text: 'text-blue-700 dark:text-blue-400',
-        border: 'border-blue-500/30',
-        dot: 'bg-blue-500',
+        bg: 'bg-green-600/10 dark:bg-green-600/20',
+        text: 'text-green-800 dark:text-green-500',
+        border: 'border-green-600/30',
+        dot: 'bg-green-600',
         label: 'ດຳເນີນການແລ້ວ'
       };
     case 'ສົ່ງແລ້ວ':
       return {
-        bg: 'bg-indigo-500/10 dark:bg-indigo-500/20',
-        text: 'text-indigo-700 dark:text-indigo-400',
-        border: 'border-indigo-500/30',
-        dot: 'bg-indigo-500',
+        bg: 'bg-green-600/10 dark:bg-green-600/20',
+        text: 'text-indigo-700 dark:text-green-400',
+        border: 'border-green-600/30',
+        dot: 'bg-green-600',
         label: 'ສົ່ງແລ້ວ'
       };
     case 'ປິດເລື່ອງ':

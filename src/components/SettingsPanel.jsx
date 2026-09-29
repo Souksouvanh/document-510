@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+﻿import React, { useState, useRef } from 'react';
 import {
   Check,
   Trash2,
@@ -66,7 +66,7 @@ export default function SettingsPanel({
       {/* Section 1: Organization & Format */}
       <div className="p-5 sm:p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs space-y-4">
         <h3 className="font-bold text-base text-slate-900 dark:text-slate-100 font-thai flex items-center gap-2">
-          <Building size={18} className="text-blue-600 dark:text-blue-400" />
+          <Building size={18} className="text-green-700 dark:text-green-500" />
           ຂໍ້ມູນຂອງໜ່ວຍງານ ແລະ ຮູບແບບເລກທີ່ເອກະສານ
         </h3>
 
@@ -134,7 +134,7 @@ export default function SettingsPanel({
             <div className="flex flex-wrap items-center gap-4 text-sm font-mono-num font-semibold">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-slate-500 font-thai">ເອກະສານຂາເຂົ້າ:</span>
-                <span className="px-3 py-1 rounded-lg bg-blue-100 text-blue-800 dark:bg-blue-950/60 dark:text-blue-300 border border-blue-200 dark:border-blue-900">
+                <span className="px-3 py-1 rounded-lg bg-green-100 text-green-900 dark:bg-green-950/60 dark:text-green-300 border border-green-200 dark:border-green-950">
                   {String(1).padStart(form.digits, '0')}/{form.prefixIn}
                 </span>
               </div>
@@ -163,7 +163,7 @@ export default function SettingsPanel({
       {/* Section 2: Backup, Restore & Sample Demo Data */}
       <div className="p-5 sm:p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs space-y-4">
         <h3 className="font-bold text-base text-slate-900 dark:text-slate-100 font-thai flex items-center gap-2">
-          <Database size={18} className="text-blue-600 dark:text-blue-400" />
+          <Database size={18} className="text-green-700 dark:text-green-500" />
           ການສຳຮອງຂໍ້ມູນ ແລະ ການທົດສອບລະບົບ
         </h3>
 
@@ -209,13 +209,13 @@ export default function SettingsPanel({
         </div>
 
         {/* Load Sample Demo Data */}
-        <div className="p-4 rounded-xl border border-blue-200/80 dark:border-blue-900/60 bg-blue-50/40 dark:bg-blue-950/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="p-4 rounded-xl border border-green-200/80 dark:border-green-950/60 bg-green-50/40 dark:bg-green-950/20 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
-            <h4 className="text-sm font-semibold text-blue-900 dark:text-blue-200 flex items-center gap-1.5">
-              <Sparkles size={16} className="text-blue-600" />
+            <h4 className="text-sm font-semibold text-green-950 dark:text-green-200 flex items-center gap-1.5">
+              <Sparkles size={16} className="text-green-700" />
               ໂຫຼດຂໍ້ມູນຕົວຢ່າງ (Sample Demo Data)
             </h4>
-            <p className="text-xs text-blue-700/80 dark:text-blue-300/80 mt-0.5">
+            <p className="text-xs text-green-800/80 dark:text-green-300/80 mt-0.5">
               ສ້າງຊຸດເອກະສານຕົວຢ່າງເພື່ອທົດສອບການເຮັດວຽກຂອງ Dashboard ແລະ ລາຍງານ
             </p>
           </div>

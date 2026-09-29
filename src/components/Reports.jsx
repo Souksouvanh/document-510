@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+﻿import React, { useMemo } from 'react';
 import {
   Download,
   Printer,
@@ -89,7 +89,7 @@ export default function Reports({ documents }) {
             <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100 font-thai">
               ລາຍງານສະຖິຕິເອກະສານຂາເຂົ້າ-ຂາອອກ
             </h2>
-            <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300">
+            <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-green-100 dark:bg-green-950/60 text-green-800 dark:text-green-300">
               ປີ {beYear}
             </span>
           </div>
@@ -130,7 +130,7 @@ export default function Reports({ documents }) {
         </div>
 
         <div className="p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 shadow-2xs">
-          <span className="text-xs text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1">
+          <span className="text-xs text-green-700 dark:text-green-500 font-medium flex items-center gap-1">
             <Inbox size={13} /> ເອກະສານຂາເຂົ້າ
           </span>
           <div className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1 font-mono-num">
@@ -183,7 +183,7 @@ export default function Reports({ documents }) {
           {/* Chart Legend */}
           <div className="flex items-center gap-4 text-xs">
             <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
-              <span className="w-3 h-3 rounded bg-blue-600 inline-block" />
+              <span className="w-3 h-3 rounded bg-green-700 inline-block" />
               ເອກະສານຂາເຂົ້າ
             </span>
             <span className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
@@ -214,7 +214,7 @@ export default function Reports({ documents }) {
                 <div className="flex items-end gap-1 h-44 w-full justify-center">
                   <div
                     style={{ height: `${Math.max(inHeight > 0 ? 6 : 0, inHeight)}%` }}
-                    className="w-2.5 sm:w-4 rounded-t bg-blue-600 dark:bg-blue-500 transition-all duration-300 group-hover:brightness-110"
+                    className="w-2.5 sm:w-4 rounded-t bg-green-700 dark:bg-green-600 transition-all duration-300 group-hover:brightness-110"
                     title={`ເອກະສານຂາເຂົ້າ ${m.in}`}
                   />
                   <div
@@ -259,7 +259,7 @@ export default function Reports({ documents }) {
                     </span>
                     <div className="flex items-center gap-3 text-slate-500 dark:text-slate-400">
                       <span>
-                        ຮັບ <strong className="text-blue-600 dark:text-blue-400">{val.in}</strong>
+                        ຮັບ <strong className="text-green-700 dark:text-green-500">{val.in}</strong>
                       </span>
                       <span>
                         ສົ່ງ <strong className="text-red-600 dark:text-red-400">{val.out}</strong>
@@ -276,7 +276,7 @@ export default function Reports({ documents }) {
                       style={{
                         width: `${yearDocs.length > 0 ? (val.in / yearDocs.length) * 100 : 0}%`,
                       }}
-                      className="bg-blue-600"
+                      className="bg-green-700"
                       title={`ເອກະສານຂາເຂົ້າ: ${val.in}`}
                     />
                     <div

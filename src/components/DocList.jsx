@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+﻿import React, { useMemo, useState } from 'react';
 import {
   Search,
   Download,
@@ -111,7 +111,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
         <div className="flex items-center gap-3">
           <div
             className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${isIncoming
-              ? 'bg-blue-600 text-white dark:bg-blue-500'
+              ? 'bg-green-700 text-white dark:bg-green-600'
               : 'bg-red-700 text-white dark:bg-red-600'
               }`}
           >
@@ -171,7 +171,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="ຄົ້ນຫາເລກທີ / ໜ່ວຍງານ / ເລື່ອງ / ໝາຍເຫດ..."
-              className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
+              className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-none focus:border-green-600 focus:ring-2 focus:ring-green-600/20"
             />
             {search && (
               <button
@@ -188,7 +188,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-blue-500"
+            className="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-green-600"
           >
             <option value="all">ທຸກປະເພດເອກະສານ</option>
             {CATEGORY_OPTIONS.map((c) => (
@@ -203,7 +203,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-blue-500"
+              className="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-green-600"
             >
               <option value="date_desc">ວັນທີ: ລ່າສຸດກ່ອນ</option>
               <option value="date_asc">ວັນທີ: ເກົ່າສຸດກ່ອນ</option>
@@ -219,7 +219,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
                 onClick={() => setViewMode('table')}
                 title="ມຸມມອງຕາຕະລາງ"
                 className={`p-1.5 rounded-md transition-colors ${viewMode === 'table'
-                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-2xs'
+                  ? 'bg-white dark:bg-slate-700 text-green-700 dark:text-green-500 shadow-2xs'
                   : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
                   }`}
               >
@@ -230,7 +230,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
                 onClick={() => setViewMode('grid')}
                 title="มุมมองการ์ด"
                 className={`p-1.5 rounded-md transition-colors ${viewMode === 'grid'
-                  ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-2xs'
+                  ? 'bg-white dark:bg-slate-700 text-green-700 dark:text-green-500 shadow-2xs'
                   : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
                   }`}
               >
@@ -261,7 +261,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
                 type="button"
                 onClick={() => setStatusFilter(st)}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-colors cursor-pointer ${isSelected
-                  ? 'bg-blue-600 text-white shadow-2xs'
+                  ? 'bg-green-700 text-white shadow-2xs'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
                   }`}
               >
@@ -331,7 +331,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
                       type="checkbox"
                       checked={selectedIds.size === filtered.length && filtered.length > 0}
                       onChange={selectAll}
-                      className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                      className="rounded border-slate-300 text-green-700 focus:ring-green-600 cursor-pointer"
                     />
                   </th>
                   <th className="px-4 py-3.5">ເລກທີລົງທະບຽນ</th>
@@ -359,7 +359,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
                       key={doc.id}
                       onClick={() => onView(doc)}
                       className={`group transition-colors cursor-pointer ${isSelected
-                        ? 'bg-blue-50/60 dark:bg-blue-950/30'
+                        ? 'bg-green-50/60 dark:bg-green-950/30'
                         : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
                         }`}
                     >
@@ -368,11 +368,11 @@ export default function DocList({ type, documents, onView, onAdd }) {
                           type="checkbox"
                           checked={isSelected}
                           onChange={(e) => toggleSelect(doc.id, e)}
-                          className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer"
+                          className="rounded border-slate-300 text-green-700 focus:ring-green-600 cursor-pointer"
                         />
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap">
-                        <span className="font-mono-num font-semibold text-xs text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 px-2 py-0.5 rounded-md border border-blue-200/60 dark:border-blue-900/60">
+                        <span className="font-mono-num font-semibold text-xs text-green-800 dark:text-green-500 bg-green-50 dark:bg-green-950/40 px-2 py-0.5 rounded-md border border-green-200/60 dark:border-green-950/60">
                           {doc.docNumber}
                         </span>
                       </td>
@@ -384,7 +384,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-1.5">
-                          <span className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
+                          <span className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-green-700 dark:group-hover:text-green-500 transition-colors line-clamp-1">
                             {doc.subject}
                           </span>
                           {doc.fileName && (
@@ -438,7 +438,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
                               e.stopPropagation();
                               onView(doc);
                             }}
-                            className="p-1 rounded text-slate-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-slate-800"
+                            className="p-1 rounded text-slate-400 hover:text-green-700 hover:bg-green-50 dark:hover:bg-slate-800"
                           >
                             <ChevronRight size={16} />
                           </button>
@@ -471,13 +471,13 @@ export default function DocList({ type, documents, onView, onAdd }) {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="font-mono-num font-semibold text-xs text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/40 px-2 py-0.5 rounded border border-blue-200/60 dark:border-blue-900/60">
+                    <span className="font-mono-num font-semibold text-xs text-green-800 dark:text-green-500 bg-green-50 dark:bg-green-950/40 px-2 py-0.5 rounded border border-green-200/60 dark:border-green-950/60">
                       {doc.docNumber}
                     </span>
                     <Badge status={doc.status} size="xs" dot />
                   </div>
 
-                  <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 mb-2">
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-green-700 dark:group-hover:text-green-500 transition-colors line-clamp-2 mb-2">
                     {doc.subject}
                   </h3>
 
@@ -509,7 +509,7 @@ export default function DocList({ type, documents, onView, onAdd }) {
 
                 <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
                   <span className="text-slate-400">{doc.category}</span>
-                  <span className="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 font-medium group-hover:translate-x-0.5 transition-transform">
+                  <span className="inline-flex items-center gap-1 text-green-700 dark:text-green-500 font-medium group-hover:translate-x-0.5 transition-transform">
                     ລາຍລະອຽດ <ChevronRight size={14} />
                   </span>
                 </div>

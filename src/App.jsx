@@ -294,11 +294,11 @@ export default function App() {
       {/* ==================================================================
           DESKTOP SIDEBAR NAVIGATION
           ================================================================== */}
-      <aside className="hidden md:flex flex-col w-64 shrink-0 border-r border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sticky top-0 h-screen z-30 justify-between">
+      <aside className="hidden md:flex flex-col w-64 shrink-0 border-r border-[#c8e6b8] dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sticky top-0 h-screen z-30 justify-between">
         <div className="space-y-6">
           {/* Header & Logo */}
           <div className="flex items-center gap-3 px-1">
-            <SealMark size={38} color={isDarkMode ? '#3B82F6' : '#1E3A8A'} />
+            <SealMark size={38} color={isDarkMode ? '#7BC55E' : '#2E7D14'} />
             <div className="overflow-hidden">
               <h1 className="text-sm font-bold text-slate-900 dark:text-slate-100 font-thai leading-snug truncate">
                 ລະບົບຈັດການເອກະສານ
@@ -313,7 +313,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setFormModal({ defaultType: 'in' })}
-            className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-sm shadow-sm transition-all duration-150 cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-semibold text-sm shadow-sm transition-all duration-150 cursor-pointer"
           >
             <Plus size={16} /> ບັນທຶກເອກະສານ
           </button>
@@ -330,7 +330,7 @@ export default function App() {
                   type="button"
                   onClick={() => setView(item.id)}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all cursor-pointer ${isActive
-                    ? 'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 font-semibold shadow-2xs'
+                    ? 'bg-green-50 dark:bg-green-950/40 text-green-700 dark:text-green-300 font-semibold shadow-2xs'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100/70 dark:hover:bg-slate-800/60'
                     }`}
                 >
@@ -339,7 +339,7 @@ export default function App() {
                       size={18}
                       className={
                         isActive
-                          ? 'text-blue-600 dark:text-blue-400'
+                          ? 'text-green-700 dark:text-green-500'
                           : 'text-slate-400 dark:text-slate-500'
                       }
                     />
@@ -428,7 +428,7 @@ export default function App() {
                 setFormModal({ defaultType: 'in' });
                 setMobileNav(false);
               }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-blue-600 text-white font-semibold text-sm mb-3"
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-green-600 text-white font-semibold text-sm mb-3"
             >
               <Plus size={16} /> ບັນທຶກເອກະສານ
             </button>
@@ -442,7 +442,7 @@ export default function App() {
                   setMobileNav(false);
                 }}
                 className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium ${view === item.id
-                  ? 'bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-semibold'
+                  ? 'bg-green-50 dark:bg-green-950/40 text-green-600 dark:text-green-400 font-semibold'
                   : 'text-slate-700 dark:text-slate-300'
                   }`}
               >
@@ -528,7 +528,7 @@ export default function App() {
                             className="p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
                           >
                             <div className="flex items-center justify-between text-xs">
-                              <span className="font-mono-num font-semibold text-blue-600 dark:text-blue-400">
+                              <span className="font-mono-num font-semibold text-green-600 dark:text-green-400">
                                 {d.docNumber}
                               </span>
                               <span
@@ -556,7 +556,7 @@ export default function App() {
             <button
               type="button"
               onClick={() => setFormModal({ defaultType: 'in' })}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-xs transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-green-600 hover:bg-green-700 text-white text-xs font-semibold shadow-xs transition-all cursor-pointer"
             >
               <Plus size={14} /> ບັນທຶກເອກະສານ
             </button>

@@ -131,7 +131,7 @@ export default function SettingsPanel({
             <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 block mb-2">
               ຕົວຢ່າງເລກທີເອກະສານທີ່ຈະສ້າງອັດຕະໂນມັດ
             </span>
-            <div className="flex flex-wrap items-center gap-4 text-sm font-mono-num font-semibold">
+            <div className="flex flex-wrap items-center gap-4 text-sm font-tabular-nums font-semibold">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-slate-500 font-thai">ເອກະສານຂາເຂົ້າ:</span>
                 <span className="px-3 py-1 rounded-lg bg-green-100 text-green-900 dark:bg-green-950/60 dark:text-green-300 border border-green-200 dark:border-green-950">

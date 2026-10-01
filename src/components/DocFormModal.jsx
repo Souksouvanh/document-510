@@ -17,6 +17,7 @@ import {
   daysUntil,
 } from '../documentData.js';
 import { Btn, Field, inputClass } from './ui.jsx';
+import AttachmentPreview from './AttachmentPreview.jsx'; // NEW (adjust path to where you saved it)
 
 export default function DocFormModal({ initial, defaultType = 'in', onClose, onSave }) {
   const isEdit = !!initial;
@@ -39,6 +40,7 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
   );
 
   const [fileError, setFileError] = useState('');
+  const [dragging, setDragging] = useState(false); // NEW
   const [validated, setValidated] = useState(false);
   const statuses = form.type === 'in' ? STATUS_IN : STATUS_OUT;
 
@@ -54,14 +56,21 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
     }));
   };
 
-  const handleFile = (e) => {
-    const file = e.target.files[0];
+  // CHANGED: shared by file picker and drag-and-drop
+  const processFile = (file) => {
     if (!file) return;
     setFileError('');
+
+    const okType = file.type.startsWith('image/') || file.type === 'application/pdf';
+    if (!okType) {
+      setFileError('ຮອງຮັບສະເພາະຮູບພາບ ຫຼື PDF ເທົ່ານັ້ນ');
+      return;
+    }
     if (file.size > 5 * 1024 * 1024) {
       setFileError('ຂະໜາດໄຟລ໌ເກີນ 5MB ກະລຸນາເລືອກໄຟລ໌ທີ່ນ້ອຍກວ່າ');
       return;
     }
+
     const reader = new FileReader();
     reader.onload = () => {
       setForm((prev) => ({
@@ -74,6 +83,18 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
     reader.readAsDataURL(file);
   };
 
+  const handleFile = (e) => {
+    processFile(e.target.files?.[0]);
+    e.target.value = ''; // allows re-selecting the same file after removing it
+  };
+
+  // NEW
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setDragging(false);
+    processFile(e.dataTransfer.files?.[0]);
+  };
+
   const removeFile = () => {
     setForm((prev) => ({
       ...prev,
@@ -81,6 +102,7 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
       fileType: '',
       fileData: '',
     }));
+    setFileError('');
   };
 
   const handleSubmit = React.useCallback(
@@ -310,38 +332,75 @@ export default function DocFormModal({ initial, defaultType = 'in', onClose, onS
             </Field>
           )}
 
-          {/* Row 6: Attachment upload */}
+          {/* Row 6: Attachment upload + preview (CHANGED) */}
           <Field label="ໄຟລ໌ແນບ (ຮູບຖ່າຍເອກະສານ ຫຼື ເອກະສານ PDF ບໍ່ເກີນ 5MB)">
             {form.fileName ? (
-              <div className="flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
-                <div className="flex items-center gap-2.5 overflow-hidden">
-                  <div className="w-8 h-8 rounded-lg bg-green-100 text-green-800 dark:bg-green-950/60 dark:text-green-300 flex items-center justify-center shrink-0">
-                    <FileText size={16} />
+              <div className="space-y-3">
+                {/* File info card */}
+                <div className="flex items-center justify-between p-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
+                  <div className="flex items-center gap-2.5 overflow-hidden">
+                    <div className="w-8 h-8 rounded-lg bg-green-100 text-green-800 dark:bg-green-950/60 dark:text-green-300 flex items-center justify-center shrink-0">
+                      <FileText size={16} />
+                    </div>
+                    <div className="truncate">
+                      <p className="text-xs font-medium text-slate-800 dark:text-slate-200 truncate">
+                        {form.fileName}
+                      </p>
+                      <p className="text-[11px] text-slate-400">ແນບໄຟລ໌ແລ້ວ</p>
+                    </div>
                   </div>
-                  <div className="truncate">
-                    <p className="text-xs font-medium text-slate-800 dark:text-slate-200 truncate">
-                      {form.fileName}
-                    </p>
-                    <p className="text-[11px] text-slate-400">ແນບໄຟລ໌ແລ້ວ</p>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={removeFile}
+                    className="p-1.5 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 cursor-pointer"
+                    title="ລົບໄຟລ໌ແນບ"
+                  >
+                    <Trash2 size={16} />
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  onClick={removeFile}
-                  className="p-1.5 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 cursor-pointer"
-                  title="ລົບໄຟລ໌ແນບ"
-                >
-                  <Trash2 size={16} />
-                </button>
+
+                {/* NEW: document preview */}
+                <AttachmentPreview
+                  doc={{
+                    fileData: form.fileData,
+                    fileType: form.fileType,
+                    fileName: form.fileName,
+                  }}
+                  showLabel={false}
+                  showDownload={false}
+                />
               </div>
             ) : (
               <div>
-                <label className="flex flex-col items-center justify-center p-5 border-2 border-dashed border-slate-200 dark:border-slate-700 hover:border-green-500 dark:hover:border-green-600 rounded-xl cursor-pointer bg-slate-50/50 dark:bg-slate-800/30 transition-colors group">
-                  <Upload size={22} className="text-slate-400 group-hover:text-green-600 mb-1" />
-                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300">
-                    ຄລິກເພື່ອເລືອກໄຟລ໌ ຫຼື ລາກໄຟລ໌ມາໃສ່ນີ້
+                <label
+                  onDragEnter={(e) => {
+                    e.preventDefault();
+                    setDragging(true);
+                  }}
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    setDragging(true);
+                  }}
+                  onDragLeave={(e) => {
+                    e.preventDefault();
+                    setDragging(false);
+                  }}
+                  onDrop={handleDrop}
+                  className={`flex flex-col items-center justify-center p-5 border-2 border-dashed rounded-xl cursor-pointer transition-colors group ${dragging
+                    ? 'border-green-500 bg-green-50 dark:bg-green-950/30'
+                    : 'border-slate-200 dark:border-slate-700 hover:border-green-500 dark:hover:border-green-600 bg-slate-50/50 dark:bg-slate-800/30'
+                    }`}
+                >
+                  {/* pointer-events-none on children stops dragleave flicker */}
+                  <Upload
+                    size={22}
+                    className={`mb-1 pointer-events-none ${dragging ? 'text-green-600' : 'text-slate-400 group-hover:text-green-600'
+                      }`}
+                  />
+                  <span className="text-xs font-medium text-slate-600 dark:text-slate-300 pointer-events-none">
+                    {dragging ? 'ປ່ອຍໄຟລ໌ບ່ອນນີ້' : 'ຄລິກເພື່ອເລືອກໄຟລ໌ ຫຼື ລາກໄຟລ໌ມາໃສ່ນີ້'}
                   </span>
-                  <span className="text-[11px] text-slate-400 mt-0.5">
+                  <span className="text-[11px] text-slate-400 mt-0.5 pointer-events-none">
                     ຮອງຮັບຮູບພາບ (PNG, JPG) ຫຼື ເອກະສານ PDF
                   </span>
                   <input

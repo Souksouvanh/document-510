@@ -14,6 +14,8 @@ import {
   STATUS_OUT,
 } from '../documentData.js';
 import { Badge, Btn, SealMark } from './ui.jsx';
+import AttachmentPreview from './AttachmentPreview.jsx';
+
 
 export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusChange }) {
   const [confirmDelete, setConfirmDelete] = useState(false);
@@ -200,37 +202,7 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
           )}
 
           {/* Attachment Preview */}
-          {doc.fileData && (
-            <div>
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                ເອກະສານແນບ
-              </span>
-              <div className="mt-2">
-                {doc.fileType && doc.fileType.startsWith('image/') ? (
-                  <div className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-50 dark:bg-slate-800 p-2 text-center">
-                    <img
-                      src={doc.fileData}
-                      alt={doc.fileName}
-                      className="max-h-72 max-w-full rounded-lg mx-auto object-contain"
-                    />
-                    <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-                      {doc.fileName}
-                    </div>
-                  </div>
-                ) : (
-                  <a
-                    href={doc.fileData}
-                    download={doc.fileName || 'attachment'}
-                    className="inline-flex items-center gap-2 p-3 rounded-xl border border-green-200 dark:border-green-950/60 bg-green-50/50 dark:bg-green-950/30 text-green-800 dark:text-green-300 hover:bg-green-100 transition-colors text-sm font-medium"
-                  >
-                    <FileText size={18} />
-                    <span>ດາວໂຫຼດເອກະສານແນບ: {doc.fileName || 'ເອກະສານແນບ'}</span>
-                    <Download size={14} className="ml-1 opacity-75" />
-                  </a>
-                )}
-              </div>
-            </div>
-          )}
+          <AttachmentPreview doc={doc} />
 
           {/* Officer Certification Box (visible in print slip) */}
           {/* <div className="pt-6 border-t border-dashed border-slate-300 dark:border-slate-700 grid grid-cols-2 gap-6 text-center text-xs text-slate-500">

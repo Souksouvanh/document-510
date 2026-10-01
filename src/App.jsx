@@ -126,7 +126,8 @@ export default function App() {
     const n = raw ? parseInt(raw, 10) + 1 : 1;
     await sSet(counterKey, String(n));
     const prefix = type === 'in' ? currentSettings.prefixIn : currentSettings.prefixOut;
-    return `${prefix}${String(n).padStart(currentSettings.digits, '0')}/${be}`;
+    return `${String(n).padStart(currentSettings.digits, '0')}/${prefix}`;
+
   }
 
   // Save document (Create / Edit)

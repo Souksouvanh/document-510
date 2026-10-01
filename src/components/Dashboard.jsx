@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import {
   Inbox,
   Send,
@@ -243,7 +243,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
                     <div
                       className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${doc.type === 'in'
                         ? 'bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-500'
-                        : 'bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-400'
+                        : 'bg-red-50 text-red-700 dark:bg-red-950/40 dark:text-red-400'
                         }`}
                     >
                       {doc.type === 'in' ? <Inbox size={15} /> : <Send size={15} />}
@@ -252,8 +252,8 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
                     {/* Document Number & Subject */}
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-mono-num text-xs font-semibold text-green-800 dark:text-green-500">
-                          {doc.docNumber}
+                        <span className={`tabular-nums text-xs font-semibold ${doc.type === 'in' ? 'text-green-800 dark:text-green-500' : 'text-red-700 dark:text-red-400'}`}>
+                          ເລກທີ {doc.docNumber}
                         </span>
                         <span className="text-[11px] text-slate-400 dark:text-slate-500 hidden sm:inline">
                           • {formatThaiDateShort(doc.date)}
@@ -264,7 +264,7 @@ export default function Dashboard({ documents, onView, onGo, onAdd }) {
                           </span>
                         )}
                       </div>
-                      <p className="text-sm font-medium text-slate-800 dark:text-slate-200 truncate mt-0.5 group-hover:text-green-700 dark:group-hover:text-green-500 transition-colors">
+                      <p className={`text-sm font-medium text-slate-800 dark:text-slate-200 truncate mt-0.5 transition-colors ${doc.type === 'in' ? 'group-hover:text-green-700 dark:group-hover:text-green-500' : 'group-hover:text-red-700 dark:group-hover:text-red-400'}`}>
                         {doc.subject}
                       </p>
                       <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">

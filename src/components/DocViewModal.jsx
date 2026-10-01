@@ -85,8 +85,8 @@ export default function DocViewModal({ doc, onClose, onEdit, onDelete, onStatusC
             </div>
 
             <div className="text-right">
-              <div className="font-mono-num font-bold text-lg text-green-800 dark:text-green-500 bg-green-50 dark:bg-green-950/40 px-3 py-1 rounded-lg border border-green-200 dark:border-green-900 inline-block">
-                {doc.docNumber}
+              <div className="tabular-nums font-semibold text-lg text-green-800 dark:text-green-500 bg-green-50 dark:bg-green-950/40 px-3 py-1 rounded-lg border border-green-200 dark:border-green-900 inline-block">
+                ເລກທີ {doc.docNumber}
               </div>
               <p className="text-[11px] text-slate-400 mt-1">
                 ລົງວັນທີ {formatThaiDate(doc.date)}

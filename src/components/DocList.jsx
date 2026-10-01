@@ -128,8 +128,8 @@ export default function DocList({ type, documents, onView, onAdd }) {
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
               {isIncoming
-                ? 'ບັນທຶກຮັບໜັງສືລາຊະການ ຈົດໝາຍເຂົ້າ ແລະຕິດຕາມການມອບໝາຍວຽກ'
-                : 'ອອກເລກທະບຽນໜັງສືສົ່ງໜັງສືແຈ້ງວຽນ ແລະຄຳສັ່ງໜ່ວຍງານ'}
+                ? 'ບັນທຶກເອກະສານເຂົ້າ ແລະ ຕິດຕາມວຽກ'
+                : 'ບັນທຶກເອກະສານຂາອອກ'}
             </p>
           </div>
         </div>
@@ -372,8 +372,8 @@ export default function DocList({ type, documents, onView, onAdd }) {
                         />
                       </td>
                       <td className="px-4 py-3 whitespace-nowrap">
-                        <span className="font-mono-num font-semibold text-xs text-green-800 dark:text-green-500 bg-green-50 dark:bg-green-950/40 px-2 py-0.5 rounded-md border border-green-200/60 dark:border-green-950/60">
-                          {doc.docNumber}
+                        <span className="tabular-nums font-semibold text-xs text-green-800 dark:text-green-500 bg-green-50 dark:bg-green-950/40 px-2 py-0.5 rounded-md border border-green-200/60 dark:border-green-950/60">
+                          ເລກທີ {doc.docNumber}
                         </span>
                       </td>
                       <td className="px-4 py-3 text-xs text-slate-500 dark:text-slate-400 whitespace-nowrap">
@@ -471,8 +471,8 @@ export default function DocList({ type, documents, onView, onAdd }) {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="font-mono-num font-semibold text-xs text-green-800 dark:text-green-500 bg-green-50 dark:bg-green-950/40 px-2 py-0.5 rounded border border-green-200/60 dark:border-green-950/60">
-                      {doc.docNumber}
+                    <span className="tabular-nums font-semibold text-xs text-green-800 dark:text-green-500 bg-green-50 dark:bg-green-950/40 px-2 py-0.5 rounded border border-green-200/60 dark:border-green-950/60">
+                      ເລກທີ {doc.docNumber}
                     </span>
                     <Badge status={doc.status} size="xs" dot />
                   </div>
